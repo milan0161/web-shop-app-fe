@@ -1,0 +1,29 @@
+<form [formGroup]="form">
+  <div class="form-group">
+    <label for="firstname">Firstname</label>
+    <app-custom-text-input
+      formControlName="firstname"
+      id="firstname"
+    ></app-custom-text-input>
+  </div>
+  <div class="form-group">
+    <label for="lastname">Lastname</label>
+    <input id="lastname" type="text" formControlName="lastname" />
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input id="email" type="text" formControlName="email" />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input id="password" type="text" formControlName="password" />
+  </div>
+  <div class="form-group">
+    <label for="repeat_password">Repeat password</label>
+    <input id="repeat_password" type="text" formArrayName="repeat_password" />
+  </div>
+  <div>
+    <!-- <app-custom-buttom [disabled]="true"></app-custom-buttom> -->
+    <button (click)="checkValues()">Check Values</button>
+  </div>
+</form>
