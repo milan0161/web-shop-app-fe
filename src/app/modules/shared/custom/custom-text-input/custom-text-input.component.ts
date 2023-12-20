@@ -1,4 +1,4 @@
-import { Component, Provider, forwardRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -15,8 +15,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class CustomTextInputComponent implements ControlValueAccessor {
   textValue: string = '';
-  private onChange!: (value: string) => void;
-  private onTouched!: () => void;
+  disabled: boolean = false;
+  onChange!: (value: string) => void;
+  onTouched!: () => void;
 
   writeValue(value: string): void {
     this.textValue = value;
@@ -27,5 +28,14 @@ export class CustomTextInputComponent implements ControlValueAccessor {
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
-  setDisabledState?(isDisabled: boolean): void {}
+  setDisabledState?(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
+  onValueChange(e: any) {
+    if (this.disabled) return;
+    this.textValue = e.target.value;
+    this.onChange(this.textValue);
+    this.onTouched();
+  }
 }

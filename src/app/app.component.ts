@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,12 @@ import { FormBuilder } from '@angular/forms';
 export class AppComponent {
   form = this.fb.group({
     firstname: [''],
-    lastname: [''],
+    lastname: [
+      {
+        value: '',
+        // disabled: true,
+      },
+    ],
     email: [''],
     password: [''],
     repeat_password: [''],
