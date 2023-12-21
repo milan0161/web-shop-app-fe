@@ -36,6 +36,12 @@
   </div>
   <div>
     <!-- <app-custom-buttom [disabled]="true"></app-custom-buttom> -->
-    <button (click)="checkValues()">Check Values</button>
+    <app-custom-buttom
+      (clickButton)="checkValues()"
+      [text]="'Submit'"
+      [buttonType]="'danger'"
+    ></app-custom-buttom>
+
+    <!-- <button (click)="checkValues()">Check Values</button> -->
   </div>
 </form>
