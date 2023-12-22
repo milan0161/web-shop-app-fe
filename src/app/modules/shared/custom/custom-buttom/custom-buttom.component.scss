@@ -1,18 +1,87 @@
 button {
-  padding: 10px 15px;
+  padding: 7px 10px;
   cursor: pointer;
   font-size: 1.1rem;
+  transition: 300ms ease-in;
 }
 
 .danger {
   background-color: red;
   color: white;
-  border: none;
+  border: 1px solid red;
   border-radius: 5px;
+  &:hover {
+    color: red;
+    background: #fff;
+  }
 }
 .primary {
   background: blue;
   color: white;
-  border: none;
+  border: 1px solid blue;
   border-radius: 5px;
+  &:hover {
+    color: blue;
+    background: #fff;
+  }
+}
+.secondary {
+  background-color: grey;
+  color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+  &:hover {
+    color: grey;
+    background: #fff;
+  }
+}
+.success {
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+  border-radius: 5px;
+  &:hover {
+    color: green;
+    background: #fff;
+  }
+}
+.warning {
+  background-color: #ffc107;
+  color: white;
+  border: 1px solid #ffc107;
+  border-radius: 5px;
+  &:hover {
+    color: #ffc107;
+    background: #fff;
+  }
+}
+.info {
+  background-color: turquoise;
+  color: white;
+  border: 1px solid turquoise;
+  border-radius: 5px;
+  &:hover {
+    color: turquoise;
+    background: #fff;
+  }
+}
+.light {
+  background-color: rgb(240, 238, 238);
+  color: #000;
+  border: 1px solid rgb(240, 238, 238);
+  border-radius: 5px;
+  &:hover {
+    color: rgb(240, 238, 238);
+    background: #000;
+  }
+}
+.dark {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  &:hover {
+    color: #000;
+    background: #fff;
+  }
 }
