@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BtnType } from './types/enumClass.enum';
 
 @Component({
-  selector: 'app-custom-buttom',
-  templateUrl: './custom-buttom.component.html',
-  styleUrls: ['./custom-buttom.component.scss'],
+  selector: 'app-custom-button',
+  templateUrl: './custom-button.component.html',
+  styleUrls: ['./custom-button.component.scss'],
 })
-export class CustomButtomComponent {
+export class CustomButtonComponent {
   @Input() text!: string;
   @Input() type: string = 'button';
   @Output() clickButton = new EventEmitter();

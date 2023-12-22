@@ -7,17 +7,14 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  options: string[] = ['male', 'female'];
   form = this.fb.group({
     firstname: [''],
-    lastname: [
-      {
-        value: '',
-        // disabled: true,
-      },
-    ],
+    lastname: [],
     email: [''],
     password: [''],
     repeat_password: [''],
+    gender: ['Select an option'],
   });
   constructor(private fb: FormBuilder) {}
 

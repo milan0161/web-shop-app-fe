@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomButtomComponent } from './custom-buttom/custom-buttom.component';
+import { CustomButtonComponent } from './custom-button/custom-button.component';
 import { CustomTextInputComponent } from './custom-text-input/custom-text-input.component';
+import { CustomSelectElementComponent } from './custom-select-element/custom-select-element.component';
 
 @NgModule({
-  declarations: [CustomButtomComponent, CustomTextInputComponent],
+  declarations: [
+    CustomButtonComponent,
+    CustomTextInputComponent,
+    CustomSelectElementComponent,
+  ],
   imports: [CommonModule],
-  exports: [CustomButtomComponent, CustomTextInputComponent],
+  exports: [
+    CustomButtonComponent,
+    CustomTextInputComponent,
+    CustomSelectElementComponent,
+  ],
 })
 export class CustomModule {}

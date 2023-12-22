@@ -19,6 +19,13 @@
     <app-custom-text-input id="email" type="text" formControlName="email" />
   </div>
   <div class="form-group">
+    <label>Select gender:</label>
+    <app-custom-select-element
+      formControlName="gender"
+      [options]="options"
+    ></app-custom-select-element>
+  </div>
+  <div class="form-group">
     <label for="password">Password</label>
     <app-custom-text-input
       id="password"
@@ -31,35 +38,35 @@
     <app-custom-text-input
       id="repeat_password"
       type="text"
-      formArrayName="repeat_password"
+      formControlName="repeat_password"
     />
   </div>
   <div>
     <!-- <app-custom-buttom [disabled]="true"></app-custom-buttom> -->
-    <app-custom-buttom
+    <app-custom-button
       (clickButton)="checkValues()"
       [text]="'Submit'"
       [buttonType]="'danger'"
-    ></app-custom-buttom>
-    <app-custom-buttom
+    ></app-custom-button>
+    <app-custom-button
       [buttonType]="'primary'"
       text="Primary"
-    ></app-custom-buttom>
-    <app-custom-buttom [buttonType]="'dark'" text="Dark"></app-custom-buttom>
-    <app-custom-buttom [buttonType]="'light'" text="Light"></app-custom-buttom>
-    <app-custom-buttom
+    ></app-custom-button>
+    <app-custom-button [buttonType]="'dark'" text="Dark"></app-custom-button>
+    <app-custom-button [buttonType]="'light'" text="Light"></app-custom-button>
+    <app-custom-button
       [buttonType]="'secondary'"
       text="Secondary"
-    ></app-custom-buttom>
-    <app-custom-buttom
+    ></app-custom-button>
+    <app-custom-button
       [buttonType]="'success'"
       text="Success"
-    ></app-custom-buttom>
-    <app-custom-buttom
+    ></app-custom-button>
+    <app-custom-button
       [buttonType]="'warning'"
       text="Warning"
-    ></app-custom-buttom>
-    <app-custom-buttom [buttonType]="'info'" text="Info"></app-custom-buttom>
+    ></app-custom-button>
+    <app-custom-button [buttonType]="'info'" text="Info"></app-custom-button>
 
     <!-- <button (click)="checkValues()">Check Values</button> -->
   </div>
