@@ -1,9 +1,10 @@
 <div class="select-options" (click)="toggleOptions()">
   {{ selectedOption }}
 </div>
-<ng-content select="[test]"></ng-content>
 <div *ngIf="showOptions" class="options">
   <div *ngFor="let option of options" (click)="selectOption(option)">
-    {{ option }}
+  <p>  {{ option }}</p>
   </div>
 </div>
+
+<!-- <ng-content select="[test]"></ng-content> -->

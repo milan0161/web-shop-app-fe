@@ -4,16 +4,21 @@
   border: 1px solid rgb(194, 191, 187);
   border-radius: 5px;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
   cursor: pointer;
 }
 .options {
   cursor: pointer;
   border: 1px solid rgb(194, 191, 187);
-  padding: 5px 10px;
   margin-top: 10px;
   border-radius: 5px;
-  div:hover {
-    color: white;
-    background: gray;
+  div{
+    padding: 5px 10px;
+    &:hover {
+      color: white;
+      background: gray;
+    }
   }
+  
 }
