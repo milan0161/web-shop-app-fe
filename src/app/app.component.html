@@ -18,13 +18,13 @@
     <label for="email">Email</label>
     <app-custom-text-input id="email" type="text" formControlName="email" />
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label>Select gender:</label>
     <app-custom-select-element formControlName="gender" [options]="options">
       <p test>Aleksa</p>
       <p>Milan</p>
     </app-custom-select-element>
-  </div>
+  </div> -->
   <div class="form-group">
     <label for="password">Password</label>
     <app-custom-text-input
@@ -40,6 +40,14 @@
       type="text"
       formControlName="repeat_password"
     />
+  </div>
+  <div class="form-group">
+    <app-custom-select-wrapper formControlName="gender">
+      <app-custom-select-option
+        *ngFor="let option of options"
+        [value]="option.value"
+      ></app-custom-select-option>
+    </app-custom-select-wrapper>
   </div>
   <div>
     <!-- <app-custom-buttom [disabled]="true"></app-custom-buttom> -->

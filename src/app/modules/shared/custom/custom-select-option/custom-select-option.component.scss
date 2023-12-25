@@ -1,0 +1,8 @@
+.option-element {
+  padding: 5px 10px;
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background: gray;
+  }
+}

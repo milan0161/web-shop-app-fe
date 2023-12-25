@@ -1,0 +1,6 @@
+<div class="select-wrapper" (click)="toggleOptions()">
+  {{ selectedOption }}
+</div>
+<div class="options-wrapper" *ngIf="showOptions">
+  <ng-content></ng-content>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { SelectInput } from './modules/shared/custom/models/select-element.types';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,16 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  options: string[] = ['male', 'female'];
+  options: SelectInput[] = [
+    { value: 'male', id: 1 },
+    { value: 'female', id: 2 },
+  ];
   form = this.fb.group({
-    firstname: [''],
+    firstname: [],
     lastname: [],
-    email: [''],
-    password: [''],
-    repeat_password: [''],
+    email: [],
+    password: [],
+    repeat_password: [],
     gender: ['Select an option'],
   });
   constructor(private fb: FormBuilder) {}

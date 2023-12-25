@@ -1,9 +1,9 @@
 <div class="select-options" (click)="toggleOptions()">
-  {{ selectedOption }}
+  <!-- {{ selectedOption.value ? selectedOption.value : "Select an option" }} -->
 </div>
 <div *ngIf="showOptions" class="options">
   <div *ngFor="let option of options" (click)="selectOption(option)">
-  <p>  {{ option }}</p>
+    <p>{{ option.value }}</p>
   </div>
 </div>
 

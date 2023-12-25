@@ -1,9 +1,9 @@
-@import '../breakpoints.scss';
+@import "../styles/breakpoints.scss";
 
 form {
   width: 50%;
   margin: 10% auto;
-  @include breakpoint('xl'){
+  @include breakpoint("xl") {
     width: 80%;
   }
 

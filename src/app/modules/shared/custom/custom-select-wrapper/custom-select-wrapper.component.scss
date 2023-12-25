@@ -1,0 +1,22 @@
+.select-wrapper {
+  padding: 5px 10px;
+  font-size: 15px;
+  border: 1px solid rgb(194, 191, 187);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &::after {
+    content: ">";
+    transform: rotate(90deg);
+    font-weight: bold;
+  }
+}
+
+.options-wrapper {
+  margin-top: 2px;
+  border: 1px solid rgb(194, 191, 187);
+  border-radius: 5px;
+}

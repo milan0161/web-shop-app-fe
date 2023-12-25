@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SelectInput } from '../models/select-element.types';
 
 @Component({
   selector: 'app-custom-select-element',
@@ -14,13 +15,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class CustomSelectElementComponent implements ControlValueAccessor {
-  @Input() options: string[] = [];
+  @Input() options: SelectInput[] = [];
   @Input() disabled: boolean = false;
 
-  selectedOption!: string;
+  selectedOption!: SelectInput;
   showOptions: boolean = false;
 
-  onChange!: (value: string) => void;
+  onChange!: (value: SelectInput) => void;
   onTouched!: () => void;
 
   writeValue(obj: any): void {
@@ -43,7 +44,7 @@ export class CustomSelectElementComponent implements ControlValueAccessor {
     }
   }
 
-  selectOption(option: string) {
+  selectOption(option: SelectInput) {
     this.selectedOption = option;
     this.onChange(option);
     this.onTouched();
