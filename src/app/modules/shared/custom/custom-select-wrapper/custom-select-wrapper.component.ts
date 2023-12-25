@@ -1,4 +1,8 @@
 import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
   Component,
   ContentChild,
   ContentChildren,
@@ -10,6 +14,7 @@ import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-custom-select-wrapper',
@@ -23,10 +28,11 @@ import {
     },
   ],
 })
-export class CustomSelectWrapperComponent implements ControlValueAccessor {
+export class CustomSelectWrapperComponent
+  implements ControlValueAccessor, AfterContentChecked
+{
   @ContentChildren(CustomSelectOptionComponent)
   options?: QueryList<CustomSelectOptionComponent | undefined>;
-
   showOptions: boolean = false;
   selectedOption!: CustomSelectOptionComponent;
   disabled: boolean = false;
@@ -36,7 +42,7 @@ export class CustomSelectWrapperComponent implements ControlValueAccessor {
 
   writeValue(obj: any): void {
     this.selectedOption = obj;
-    console.log(this.selectedOption);
+    // console.log(this.selectedOption);
   }
   registerOnChange(fn: any): void {
     this.onChange = fn;
@@ -48,6 +54,11 @@ export class CustomSelectWrapperComponent implements ControlValueAccessor {
     this.disabled = isDisabled;
   }
 
+  ngAfterContentChecked(): void {
+    // console.log(this.options, 'content checked');
+    // const selected = this.options?.find((x) => x!.isSelected);
+  }
+
   toggleOptions() {
     if (!this.disabled) {
       this.showOptions = !this.showOptions;
@@ -55,9 +66,9 @@ export class CustomSelectWrapperComponent implements ControlValueAccessor {
   }
 
   selectOption(option: CustomSelectOptionComponent) {
+    this.toggleOptions();
     this.selectedOption = option;
     this.onChange(option);
     this.onTouched();
-    this.toggleOptions();
   }
 }

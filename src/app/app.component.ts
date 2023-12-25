@@ -11,6 +11,7 @@ export class AppComponent {
   options: SelectInput[] = [
     { value: 'male', id: 1 },
     { value: 'female', id: 2 },
+    { value: 'other', id: 3 },
   ];
   form = this.fb.group({
     firstname: [],
