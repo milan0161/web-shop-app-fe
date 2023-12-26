@@ -6,15 +6,20 @@ import {
   Component,
   ContentChild,
   ContentChildren,
+  OnDestroy,
+  OnInit,
+  Optional,
   QueryList,
 } from '@angular/core';
 import { CustomSelectOptionComponent } from '../custom-select-option/custom-select-option.component';
 import {
   ControlContainer,
   ControlValueAccessor,
+  FormControl,
   NG_VALUE_ACCESSOR,
+  NgControl,
 } from '@angular/forms';
-import { map } from 'rxjs';
+import { Subject, map, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-custom-select-wrapper',
@@ -29,7 +34,7 @@ import { map } from 'rxjs';
   ],
 })
 export class CustomSelectWrapperComponent
-  implements ControlValueAccessor, AfterContentChecked
+  implements ControlValueAccessor, AfterContentInit, OnDestroy
 {
   @ContentChildren(CustomSelectOptionComponent)
   options?: QueryList<CustomSelectOptionComponent | undefined>;
@@ -37,12 +42,15 @@ export class CustomSelectWrapperComponent
   selectedOption!: CustomSelectOptionComponent;
   disabled: boolean = false;
 
+  private destroyed$ = new Subject<void>();
+
   onChange!: (value: CustomSelectOptionComponent) => void;
   onTouched!: () => void;
 
+  constructor() {}
+
   writeValue(obj: any): void {
     this.selectedOption = obj;
-    // console.log(this.selectedOption);
   }
   registerOnChange(fn: any): void {
     this.onChange = fn;
@@ -54,11 +62,6 @@ export class CustomSelectWrapperComponent
     this.disabled = isDisabled;
   }
 
-  ngAfterContentChecked(): void {
-    // console.log(this.options, 'content checked');
-    // const selected = this.options?.find((x) => x!.isSelected);
-  }
-
   toggleOptions() {
     if (!this.disabled) {
       this.showOptions = !this.showOptions;
@@ -66,9 +69,24 @@ export class CustomSelectWrapperComponent
   }
 
   selectOption(option: CustomSelectOptionComponent) {
-    this.toggleOptions();
     this.selectedOption = option;
     this.onChange(option);
     this.onTouched();
+    this.toggleOptions();
+  }
+
+  ngAfterContentInit(): void {
+    this.options?.forEach((option) => {
+      option?.valueChanges$
+        .pipe(takeUntil(this.destroyed$))
+        .subscribe((value: any) => {
+          this.selectOption(value);
+        });
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.destroyed$.next();
+    this.destroyed$.complete();
   }
 }

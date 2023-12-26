@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ControlContainer } from '@angular/forms';
+import { Component, Input, OnInit, Optional, SkipSelf } from '@angular/core';
+import { ControlContainer, FormControl } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-custom-select-option',
@@ -9,11 +10,13 @@ import { ControlContainer } from '@angular/forms';
 export class CustomSelectOptionComponent implements OnInit {
   @Input() value: any;
   isSelected: boolean = false;
-  constructor(private controlContainer: ControlContainer) {}
+  public x = new FormControl();
+  valueChanges$ = new Subject();
+  constructor() {}
   ngOnInit(): void {
     // console.log(this.controlContainer.control);
   }
   chooseOption() {
-    this.isSelected = true;
+    this.valueChanges$.next(this.value);
   }
 }

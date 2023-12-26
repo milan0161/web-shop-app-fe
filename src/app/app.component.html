@@ -18,26 +18,14 @@
     <label for="email">Email</label>
     <app-custom-text-input id="email" type="text" formControlName="email" />
   </div>
-  <!-- <div class="form-group">
-    <label>Select gender:</label>
-    <app-custom-select-element formControlName="gender" [options]="options">
-      <p test>Aleksa</p>
-      <p>Milan</p>
-    </app-custom-select-element>
-  </div> -->
   <div class="form-group">
-    <label for="password">Password</label>
-    <app-custom-text-input
-      id="password"
-      type="text"
-      formControlName="password"
-    />
+    <label>Password</label>
+    <app-custom-text-input [isPassword]="true" formControlName="password" />
   </div>
   <div class="form-group">
-    <label for="repeat_password">Repeat password</label>
+    <label>Repeat password</label>
     <app-custom-text-input
-      id="repeat_password"
-      type="text"
+      [isPassword]="true"
       formControlName="repeat_password"
     />
   </div>
@@ -50,7 +38,6 @@
     </app-custom-select-wrapper>
   </div>
   <div>
-    <!-- <app-custom-buttom [disabled]="true"></app-custom-buttom> -->
     <app-custom-button
       (clickButton)="checkValues()"
       [text]="'Submit'"
