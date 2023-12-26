@@ -1,5 +1,6 @@
 <div class="select-wrapper" (click)="toggleOptions()">
-  {{ selectedOption }}
+  <span>{{ selectedOption }}</span>
+  <i [class.is-open]="showOptions" class="fa fa-chevron-down"></i>
 </div>
 <div class="options-wrapper" *ngIf="showOptions">
   <ng-content></ng-content>

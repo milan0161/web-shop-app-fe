@@ -1,13 +1,13 @@
 @import "../../../../../styles/color-palette.scss";
 input {
   padding: 10px 15px;
-  font-size: 15px;
+  font-size: 1.1rem;
   border: 1px solid $turquoise;
   border-radius: 5px;
   width: 100%;
   background: $light-turquoise;
   &:focus {
-    border: 1px solid #ffdb58;
-    outline: 2px solid #ffdb58;
+    border: 1px solid $turquoise;
+    outline: 2px solid  $turquoise;
   }
 }
