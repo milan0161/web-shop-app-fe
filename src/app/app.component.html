@@ -1,39 +1,33 @@
 <form [formGroup]="form">
   <div class="form-group">
-    <label for="firstname">Firstname</label>
-    <app-custom-text-input
-      formControlName="firstname"
-      id="firstname"
-    ></app-custom-text-input>
+    <label>Firstname</label>
+    <app-custom-text-input formControlName="firstname"></app-custom-text-input>
   </div>
   <div class="form-group">
-    <label for="lastname">Lastname</label>
+    <label>Lastname</label>
+    <app-custom-text-input type="text" formControlName="lastname" />
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <app-custom-text-input type="text" formControlName="email" />
+  </div>
+  <div class="form-group">
+    <!-- <label>Password</label> -->
     <app-custom-text-input
-      id="lastname"
-      type="text"
-      formControlName="lastname"
+      type="password"
+      title="Password"
+      formControlName="password"
     />
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <app-custom-text-input id="email" type="text" formControlName="email" />
-  </div>
-  <div class="form-group">
-    <label>Password</label>
-    <app-custom-text-input [isPassword]="true" formControlName="password" />
   </div>
   <div class="form-group">
     <label>Repeat password</label>
-    <app-custom-text-input
-      [isPassword]="true"
-      formControlName="repeat_password"
-    />
+    <app-custom-text-input type="password" formControlName="repeat_password" />
   </div>
   <div class="form-group">
     <app-custom-select-wrapper formControlName="gender">
       <app-custom-select-option
         *ngFor="let option of options"
-        [value]="option.value"
+        [value]="option"
       ></app-custom-select-option>
     </app-custom-select-wrapper>
   </div>

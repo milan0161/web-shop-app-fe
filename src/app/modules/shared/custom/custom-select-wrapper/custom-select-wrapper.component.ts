@@ -1,25 +1,12 @@
 import {
-  AfterContentChecked,
   AfterContentInit,
-  AfterViewChecked,
-  AfterViewInit,
   Component,
-  ContentChild,
   ContentChildren,
   OnDestroy,
-  OnInit,
-  Optional,
   QueryList,
 } from '@angular/core';
 import { CustomSelectOptionComponent } from '../custom-select-option/custom-select-option.component';
-import {
-  ControlContainer,
-  ControlValueAccessor,
-  FormControl,
-  NG_VALUE_ACCESSOR,
-  NgControl,
-} from '@angular/forms';
-import { Subject, map, takeUntil } from 'rxjs';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-custom-select-wrapper',
@@ -33,23 +20,17 @@ import { Subject, map, takeUntil } from 'rxjs';
     },
   ],
 })
-export class CustomSelectWrapperComponent
-  implements ControlValueAccessor, AfterContentInit, OnDestroy
-{
+export class CustomSelectWrapperComponent implements ControlValueAccessor {
   @ContentChildren(CustomSelectOptionComponent)
   options?: QueryList<CustomSelectOptionComponent | undefined>;
-  showOptions: boolean = false;
+  showOptions: boolean = true;
   selectedOption!: CustomSelectOptionComponent;
   disabled: boolean = false;
-
-  private destroyed$ = new Subject<void>();
-
   onChange!: (value: CustomSelectOptionComponent) => void;
   onTouched!: () => void;
 
-  constructor() {}
-
   writeValue(obj: any): void {
+    this.toggleOptions();
     this.selectedOption = obj;
   }
   registerOnChange(fn: any): void {
@@ -73,20 +54,5 @@ export class CustomSelectWrapperComponent
     this.onChange(option);
     this.onTouched();
     this.toggleOptions();
-  }
-
-  ngAfterContentInit(): void {
-    this.options?.forEach((option) => {
-      option?.valueChanges$
-        .pipe(takeUntil(this.destroyed$))
-        .subscribe((value: any) => {
-          this.selectOption(value);
-        });
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.destroyed$.next();
-    this.destroyed$.complete();
   }
 }

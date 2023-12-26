@@ -16,7 +16,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class CustomTextInputComponent implements ControlValueAccessor {
   textValue: string = '';
   disabled: boolean = false;
-  @Input() isPassword: boolean = false;
+  @Input() type: string = 'text';
+  @Input() title: string = '';
   onChange!: (value: string) => void;
   onTouched!: () => void;
 

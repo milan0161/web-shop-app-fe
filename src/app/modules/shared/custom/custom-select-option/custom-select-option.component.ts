@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Optional, SkipSelf } from '@angular/core';
-import { ControlContainer, FormControl } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { ControlContainer, FormControl, NgControl } from '@angular/forms';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-custom-select-option',
@@ -10,13 +10,14 @@ import { Subject } from 'rxjs';
 export class CustomSelectOptionComponent implements OnInit {
   @Input() value: any;
   isSelected: boolean = false;
-  public x = new FormControl();
-  valueChanges$ = new Subject();
-  constructor() {}
+  private parentControl: FormControl | null = null;
+  constructor(@Optional() @SkipSelf() ngControl: NgControl) {
+    this.parentControl = ngControl.control as FormControl;
+  }
   ngOnInit(): void {
-    // console.log(this.controlContainer.control);
+    console.log(this.parentControl);
   }
   chooseOption() {
-    this.valueChanges$.next(this.value);
+    this.parentControl?.setValue(this.value.value);
   }
 }

@@ -1,4 +1,2 @@
-<input
-  [type]="isPassword ? 'password' : 'text'"
-  (input)="onValueChange($event)"
-/>
+<label *ngIf="title">{{ title }}</label>
+<input [type]="type" (input)="onValueChange($event)" />
