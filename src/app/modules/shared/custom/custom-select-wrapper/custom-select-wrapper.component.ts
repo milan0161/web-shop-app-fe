@@ -1,10 +1,4 @@
-import {
-  AfterContentInit,
-  Component,
-  ContentChildren,
-  OnDestroy,
-  QueryList,
-} from '@angular/core';
+import { Component, ContentChildren, QueryList } from '@angular/core';
 import { CustomSelectOptionComponent } from '../custom-select-option/custom-select-option.component';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 

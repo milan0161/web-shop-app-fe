@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Optional, SkipSelf } from '@angular/core';
-import { ControlContainer, FormControl, NgControl } from '@angular/forms';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { FormControl, NgControl } from '@angular/forms';
 
 @Component({
   selector: 'app-custom-select-option',
