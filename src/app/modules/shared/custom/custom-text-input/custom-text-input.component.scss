@@ -1,21 +1,27 @@
 @import "../../../../../styles/color-palette.scss";
-input {
-  padding: 10px 15px;
-  font-size: 1.1rem;
-  border: 1px solid $turquoise;
-  border-radius: 5px;
-  width: 100%;
-  background: $light-turquoise;
-  &:focus {
-    border: 1px solid $turquoise;
-    outline: 2px solid $turquoise;
+.input_wrapper{
+  position: relative;
+  input {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    border: 1px solid #d4d1d18a;
+    border-radius: 1px;
+    width: 100%;
+    background: #ece9e98a;
+    &:focus {
+      border: 1px solid $green-dark-1;
+      outline: none;
+      // outline: 2px solid $turquoise;
+    }
   }
-}
-.is-invalid {
-  border: 1px solid rgb(226, 53, 53);
-  outline: none;
-  &:focus {
+  .is-invalid {
     border: 1px solid rgb(226, 53, 53);
     outline: none;
+    &:focus {
+      border: 1px solid rgb(226, 53, 53);
+      outline: none;
+    }
   }
 }
+
+

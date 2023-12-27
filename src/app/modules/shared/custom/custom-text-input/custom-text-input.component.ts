@@ -77,8 +77,6 @@ export class CustomTextInputComponent implements ControlValueAccessor, OnInit {
     }
   }
   private checkIsValid() {
-    console.log('pozvana');
-
     this.isValid =
       !this.control!.invalid && (this.control!.dirty || this.control!.touched);
   }

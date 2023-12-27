@@ -8,4 +8,10 @@ import { ValidationErrors } from '@angular/forms';
 })
 export class CustomErrorMessageComponent {
   @Input() message: ValidationErrors | null = null;
+  showMessages: boolean = false;
+
+  toggleMessages() {
+    this.showMessages = !this.showMessages;
+    console.log(this.showMessages);
+  }
 }

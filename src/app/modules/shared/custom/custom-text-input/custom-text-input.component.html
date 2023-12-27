@@ -1,4 +1,5 @@
-<label *ngIf="title">{{ title }}</label>
+<div class="input_wrapper">
+  <label *ngIf="title">{{ title }}</label>
 <input
   [type]="type"
   (input)="onValueChange($event)"
@@ -10,3 +11,6 @@
   ></app-custom-error-message>
   <!-- <span [class.invalid]="!isValid">{{ control!.errors! | errors }}</span> -->
 </p>
+</div>
+
+
