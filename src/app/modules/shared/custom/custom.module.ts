@@ -6,6 +6,8 @@ import { CustomSelectElementComponent } from './custom-select-element/custom-sel
 import { CustomSelectMultiComponent } from './custom-select-multi/custom-select-multi.component';
 import { CustomSelectWrapperComponent } from './custom-select-wrapper/custom-select-wrapper.component';
 import { CustomSelectOptionComponent } from './custom-select-option/custom-select-option.component';
+import { ErrorsPipe } from './pipes/errors/errors.pipe';
+import { CustomErrorMessageComponent } from './custom-error-message/custom-error-message.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { CustomSelectOptionComponent } from './custom-select-option/custom-selec
     CustomSelectMultiComponent,
     CustomSelectWrapperComponent,
     CustomSelectOptionComponent,
+    ErrorsPipe,
+    CustomErrorMessageComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -23,6 +27,7 @@ import { CustomSelectOptionComponent } from './custom-select-option/custom-selec
     CustomSelectElementComponent,
     CustomSelectWrapperComponent,
     CustomSelectOptionComponent,
+    CustomErrorMessageComponent,
   ],
 })
 export class CustomModule {}

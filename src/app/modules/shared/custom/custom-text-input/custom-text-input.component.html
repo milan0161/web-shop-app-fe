@@ -2,5 +2,11 @@
 <input
   [type]="type"
   (input)="onValueChange($event)"
-  [class.is-invalid]="invalid"
+  [class.is-invalid]="!isValid"
 />
+<p *ngIf="!isValid">
+  <app-custom-error-message
+    [message]="control?.errors!"
+  ></app-custom-error-message>
+  <!-- <span [class.invalid]="!isValid">{{ control!.errors! | errors }}</span> -->
+</p>
