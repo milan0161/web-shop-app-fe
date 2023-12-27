@@ -24,12 +24,4 @@ export class RegisterComponent {
   register() {
     console.log(this.registerForm.value);
   }
-
-  checkInputs(formControlElement: string[]) {
-    return (
-      this.registerForm.get(formControlElement)?.invalid &&
-      (this.registerForm.get(formControlElement)?.dirty ||
-        this.registerForm.get(formControlElement)?.touched)
-    );
-  }
 }
