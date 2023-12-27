@@ -1,0 +1,78 @@
+<form (ngSubmit)="register()" [formGroup]="registerForm" class="register_form">
+  <h2 class="register_form__title">Register</h2>
+  <div class="register_form__input_wrapper">
+    <label>Username: </label>
+    <app-custom-text-input
+      [invalid]="checkInputs(['username'])"
+      formControlName="username"
+    ></app-custom-text-input>
+    <div class="invalid" *ngIf="checkInputs(['username'])">
+      Username is required
+    </div>
+  </div>
+  <div class="register_form__input_wrapper">
+    <label>Password: </label>
+    <app-custom-text-input
+      type="password"
+      formControlName="password"
+      [invalid]="checkInputs(['password'])"
+    ></app-custom-text-input>
+    <div class="invalid" *ngIf="checkInputs(['password'])">
+      Password is required
+    </div>
+  </div>
+  <div class="register_form__input_wrapper">
+    <label>Firstname: </label>
+    <app-custom-text-input
+      [invalid]="checkInputs(['firstName'])"
+      formControlName="firstName"
+    ></app-custom-text-input>
+    <div class="invalid" *ngIf="checkInputs(['firstName'])">
+      Firstname is required
+    </div>
+  </div>
+  <div class="register_form__input_wrapper">
+    <label>Lastname: </label>
+    <app-custom-text-input
+      [invalid]="checkInputs(['lastName'])"
+      formControlName="lastName"
+    ></app-custom-text-input>
+    <div class="invalid" *ngIf="checkInputs(['lastName'])">
+      Lastname is required
+    </div>
+  </div>
+
+  <div formGroupName="userContactInfo" class="register_form__contact_info">
+    <div class="register_form__contact_info__input_wrapper">
+      <label>Email: </label>
+      <app-custom-text-input
+        [invalid]="checkInputs(['userContactInfo', 'email'])"
+        type="email"
+        formControlName="email"
+      ></app-custom-text-input>
+      <div class="invalid" *ngIf="checkInputs(['userContactInfo', 'email'])">
+        A valid email address must be provided
+      </div>
+    </div>
+    <div class="register_form__contact_info__input_wrapper">
+      <label>Contact phone: </label>
+      <app-custom-text-input
+        [invalid]="checkInputs(['userContactInfo', 'contactPhone'])"
+        formControlName="contactPhone"
+      ></app-custom-text-input>
+      <div
+        class="invalid"
+        *ngIf="checkInputs(['userContactInfo', 'contactPhone'])"
+      >
+        Contact phone is required
+      </div>
+    </div>
+  </div>
+  <div>
+    <app-custom-button
+      text="Register"
+      type="submit"
+      buttonType="turquoise"
+    ></app-custom-button>
+  </div>
+</form>

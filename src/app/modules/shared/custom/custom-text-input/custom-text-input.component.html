@@ -1,2 +1,6 @@
 <label *ngIf="title">{{ title }}</label>
-<input [type]="type" (input)="onValueChange($event)" />
+<input
+  [type]="type"
+  (input)="onValueChange($event)"
+  [class.is-invalid]="invalid"
+/>

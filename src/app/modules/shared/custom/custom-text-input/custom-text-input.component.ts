@@ -18,6 +18,7 @@ export class CustomTextInputComponent implements ControlValueAccessor {
   disabled: boolean = false;
   @Input() type: string = 'text';
   @Input() title: string = '';
+  @Input() invalid: boolean | undefined = false;
   onChange!: (value: string) => void;
   onTouched!: () => void;
 

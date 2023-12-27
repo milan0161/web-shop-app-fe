@@ -8,6 +8,15 @@ input {
   background: $light-turquoise;
   &:focus {
     border: 1px solid $turquoise;
-    outline: 2px solid  $turquoise;
+    outline: 2px solid $turquoise;
+  }
+}
+.is-invalid {
+  border: 1px solid rgb(226, 53, 53);
+  outline: 3px solid rgb(226, 53, 53);
+  background: #db8080;
+  &:focus {
+    border: 1px solid rgb(226, 53, 53);
+    outline: 3px solid rgb(226, 53, 53);
   }
 }

@@ -1,0 +1,43 @@
+@import "../../../../styles/breakpoints.scss";
+@import "../../../../styles/color-palette.scss";
+.register_form {
+  width: 40%;
+  margin: 10% auto;
+  display: flex;
+  border: 1px solid $turquoise;
+  border-radius: 10px;
+  padding: 10px;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  gap: 10px;
+  &__title {
+    text-align: center;
+    font-size: 2rem;
+  }
+  &__input_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    label {
+      font-size: 1.1rem;
+    }
+  }
+  &__contact_info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    &__input_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      label {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+.invalid {
+  color: red;
+}
