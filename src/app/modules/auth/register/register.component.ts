@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { confirmPasswordValidator } from '../utils/validators/confirmPasswordValidator';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +12,7 @@ export class RegisterComponent {
     {
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
+      confirm_password: new FormControl('', []),
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
       userContactInfo: new FormGroup({
@@ -18,7 +20,8 @@ export class RegisterComponent {
         contactPhone: new FormControl('', [Validators.required]),
       }),
     },
-    { updateOn: 'blur' }
+    { validators: confirmPasswordValidator }
+    // { updateOn: 'blur' }
   );
 
   register() {
