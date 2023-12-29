@@ -24,7 +24,6 @@ export class RegisterComponent {
   );
 
   register() {
-    // console.log(this.registerForm.errors);
-    console.log(RegisterDto.toRegisterDto(this.registerForm.value));
+    console.log(this.registerForm.value);
   }
 }

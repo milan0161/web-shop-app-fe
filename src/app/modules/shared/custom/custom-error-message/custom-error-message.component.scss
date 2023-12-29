@@ -1,3 +1,4 @@
+@import "../../../../../styles/box-shadows.scss";
 .custom-error-message-wrapper {
   font-size: 1rem;
   color: red;
@@ -27,7 +28,7 @@
     right: -1px;
     top: -1px;
     display: none;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: $shadow-light;
     display: flex;
     transform: translate(100%, -100%);
   }

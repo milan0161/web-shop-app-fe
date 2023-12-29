@@ -1,11 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PredefinedErrorMessages } from '../../utils/errors/error-messages';
+import {
+  PredefinedErrorMessages,
+  PredifinedErrors,
+} from '../../utils/errors/error-messages';
 import { ValidationErrors } from '@angular/forms';
 @Pipe({
   name: 'errors',
 })
 export class ErrorsPipe implements PipeTransform {
-  errors: any = PredefinedErrorMessages;
+  errors: PredifinedErrors = PredefinedErrorMessages;
   transform(value: ValidationErrors): string {
     return this.handleValidationError(value);
   }

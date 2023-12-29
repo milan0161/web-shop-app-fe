@@ -1,14 +1,14 @@
 @import "../../../../styles/breakpoints.scss";
 @import "../../../../styles/color-palette.scss";
+@import "../../../../styles/box-shadows.scss";
 .register_form {
   width: 30%;
   margin: 4% auto;
   display: flex;
-  // border: 1px solid $turquoise;
   border-radius: 2px;
   padding: 15px 3%;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: $shadow-light;
   gap: 10px;
   @include breakpoint("xl") {
     width: 40%;

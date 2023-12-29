@@ -68,12 +68,10 @@ export class CustomTextInputComponent implements ControlValueAccessor, OnInit {
   }
 
   private setFormControl() {
-    if (this.controlContainer) {
-      if (this.formControlName) {
-        this.control = this.controlContainer.control?.get(
-          this.formControlName
-        ) as FormControl;
-      }
+    if (this.controlContainer && this.formControlName) {
+      this.control = this.controlContainer.control?.get(
+        this.formControlName
+      ) as FormControl;
     }
   }
   private checkIsValid() {
