@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { confirmPasswordValidator } from '../utils/validators/confirmPasswordValidator';
-import { RegisterDto } from './DTOs/register.dto';
 
 @Component({
   selector: 'app-register',
