@@ -5,43 +5,49 @@
   </div>
   <hr />
   <div class="register_form__input_wrapper">
-    <label>Username: </label>
-    <app-custom-text-input formControlName="username"></app-custom-text-input>
+    <app-custom-text-input
+      title="username"
+      formControlName="username"
+    ></app-custom-text-input>
   </div>
   <div class="register_form__input_wrapper">
-    <label>Password: </label>
     <app-custom-text-input
+      title="password"
       type="password"
       formControlName="password"
     ></app-custom-text-input>
   </div>
   <div class="register_form__input_wrapper">
-    <label>Confirm Password: </label>
     <app-custom-text-input
+      title="confirm password"
       type="password"
       formControlName="confirm_password"
     ></app-custom-text-input>
   </div>
   <div class="register_form__input_wrapper">
-    <label>Firstname: </label>
-    <app-custom-text-input formControlName="firstName"></app-custom-text-input>
+    <app-custom-text-input
+      title="firstname"
+      formControlName="firstName"
+    ></app-custom-text-input>
   </div>
   <div class="register_form__input_wrapper">
-    <label>Lastname: </label>
-    <app-custom-text-input formControlName="lastName"></app-custom-text-input>
+    <app-custom-text-input
+      title="Lastname"
+      formControlName="lastName"
+    ></app-custom-text-input>
   </div>
 
   <div formGroupName="userContactInfo" class="register_form__contact_info">
     <div class="register_form__contact_info__input_wrapper">
-      <label>Email: </label>
       <app-custom-text-input
+        title="email"
         type="email"
         formControlName="email"
       ></app-custom-text-input>
     </div>
     <div class="register_form__contact_info__input_wrapper">
-      <label>Contact phone: </label>
       <app-custom-text-input
+        title="contact phone"
         formControlName="contactPhone"
       ></app-custom-text-input>
     </div>

@@ -1,8 +1,14 @@
 <div class="custom-error-message-wrapper">
-  <div (click)="toggleMessages()" class="custom-error-message-wrapper__icon_wrapper">
-    <i class="fa fa-exclamation custom-error-message-wrapper__icon_wrapper__icon"></i>
+  <div
+    (click)="toggleMessages()"
+    class="custom-error-message-wrapper__icon_wrapper"
+  >
+    <span>!</span>
   </div>
-  <div *ngIf="showMessages" class="custom-error-message-wrapper__message_wrapper">
+  <div
+    *ngIf="showMessages"
+    class="custom-error-message-wrapper__message_wrapper"
+  >
     <span *ngIf="message">{{ message | errors }}</span>
   </div>
 </div>
