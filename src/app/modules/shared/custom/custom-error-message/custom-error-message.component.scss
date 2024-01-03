@@ -1,0 +1,35 @@
+@import "../../../../../styles/box-shadows.scss";
+.custom-error-message-wrapper {
+  font-size: 1rem;
+  color: red;
+
+  &__icon_wrapper {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    cursor: pointer;
+    border: 1px solid red;
+    text-align: center;
+    font-weight: 100;
+    width: 25px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+  }
+
+  &__message_wrapper {
+    position: absolute;
+    background-color: white;
+    z-index: 10;
+    padding: 20px;
+    right: -1px;
+    top: -1px;
+    display: none;
+    box-shadow: $shadow-light;
+    display: flex;
+    transform: translate(100%, -100%);
+  }
+}

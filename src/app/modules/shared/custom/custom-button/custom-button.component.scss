@@ -1,3 +1,4 @@
+@import "../../../../../styles/color-palette.scss";
 button {
   padding: 7px 10px;
   cursor: pointer;
@@ -84,4 +85,18 @@ button {
     color: #000;
     background: #fff;
   }
+}
+.turquoise {
+  background-color: $turquoise;
+  color: #fff;
+  border: 1px solid $turquoise;
+  border-radius: 5px;
+  &:hover {
+    color: $turquoise;
+    background: #fff;
+  }
+}
+
+.disabled {
+  opacity: 0.2;
 }

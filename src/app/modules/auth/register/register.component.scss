@@ -1,0 +1,98 @@
+@import "../../../../styles/breakpoints.scss";
+@import "../../../../styles/color-palette.scss";
+@import "../../../../styles/box-shadows.scss";
+.register_form {
+  width: 30%;
+  margin: 4% auto;
+  display: flex;
+  border-radius: 2px;
+  padding: 15px 3%;
+  flex-direction: column;
+  box-shadow: $shadow-light;
+  gap: 10px;
+  @include breakpoint("xl") {
+    width: 40%;
+  }
+  @include breakpoint("lg") {
+    width: 50%;
+  }
+  @include breakpoint("sm") {
+    width: 70%;
+  }
+  @include breakpoint("vsm") {
+    width: 100%;
+    margin: 0 auto;
+  }
+  hr {
+    border: 1px solid rgb(238, 241, 238);
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  &__title_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    i {
+      font-size: 50px;
+    }
+    &__title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+  }
+  &__input_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    label {
+      font-size: 1.1rem;
+    }
+  }
+  &__contact_info {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    &__input_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      label {
+        font-size: 1.1rem;
+      }
+    }
+    @include breakpoint("sm") {
+      flex-direction: column;
+      &__input_wrapper {
+        width: 100%;
+      }
+    }
+  }
+  &__button_wrapper {
+    display: flex;
+    margin: 9% 0;
+    align-items: center;
+    justify-content: center;
+    &__signup_btn {
+      background: $green-light;
+      border: 1px solid $green-dark-1;
+      font-size: 1.1rem;
+      padding: 15px 60px;
+      color: white;
+      font-weight: 400;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}
+.invalid {
+  color: red;
+}
+.disabled {
+  opacity: 0.2;
+}

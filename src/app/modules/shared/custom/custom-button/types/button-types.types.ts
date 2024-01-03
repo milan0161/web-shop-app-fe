@@ -6,4 +6,5 @@ export type BtnType =
   | 'danger'
   | 'info'
   | 'light'
-  | 'dark';
+  | 'dark'
+  | 'turquoise';

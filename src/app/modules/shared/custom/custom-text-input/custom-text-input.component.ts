@@ -1,5 +1,18 @@
-import { Component, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  Component,
+  Host,
+  Input,
+  OnInit,
+  Optional,
+  SkipSelf,
+} from '@angular/core';
+import {
+  AbstractControl,
+  ControlContainer,
+  ControlValueAccessor,
+  FormControl,
+  NG_VALUE_ACCESSOR,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-custom-text-input',
@@ -13,13 +26,25 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ],
 })
-export class CustomTextInputComponent implements ControlValueAccessor {
+export class CustomTextInputComponent implements ControlValueAccessor, OnInit {
   textValue: string = '';
   disabled: boolean = false;
+  @Input() formControlName?: string;
   @Input() type: string = 'text';
   @Input() title: string = '';
+  @Input() invalid: boolean | undefined = false;
+  isValid: boolean = true;
   onChange!: (value: string) => void;
   onTouched!: () => void;
+  control?: AbstractControl;
+
+  constructor(
+    @Optional() @SkipSelf() private controlContainer: ControlContainer
+  ) {}
+
+  ngOnInit(): void {
+    this.setFormControl();
+  }
 
   writeValue(value: string): void {
     this.textValue = value;
@@ -39,5 +64,18 @@ export class CustomTextInputComponent implements ControlValueAccessor {
     this.textValue = e.target.value;
     this.onChange(this.textValue);
     this.onTouched();
+    this.checkIsValid();
+  }
+
+  private setFormControl() {
+    if (this.controlContainer && this.formControlName) {
+      this.control = this.controlContainer.control?.get(
+        this.formControlName
+      ) as FormControl;
+    }
+  }
+  private checkIsValid() {
+    this.isValid =
+      !this.control!.invalid && (this.control!.dirty || this.control!.touched);
   }
 }
