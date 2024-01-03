@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-
   registerForm = new FormGroup(
     {
       username: new FormControl('', [Validators.required]),
@@ -26,17 +25,29 @@ export class RegisterComponent {
     { validators: confirmPasswordValidator }
   );
 
-  constructor(private authService: AuthService, private router:Router){}
+  constructor(private authService: AuthService, private router: Router) {}
 
   register() {
-      const {firstName,lastName,username, password, userContactInfo} = this.registerForm.value
+    const { firstName, lastName, username, password, userContactInfo } =
+      this.registerForm.value;
 
-      this.authService.register(({ username:username!, password:password!, firstName:firstName!, lastName:lastName!, userContactInfo:{
-        contactPhone: userContactInfo!.contactPhone!, email: userContactInfo!.email!
-      },})).subscribe((response) => {
-            console.log(response)
-            this.router.navigate(['login'])
-      },)
-    }
+    this.authService
+      .register({
+        username: username!,
+        password: password!,
+        firstName: firstName!,
+        lastName: lastName!,
+        userContactInfo: {
+          contactPhone: userContactInfo!.contactPhone!,
+          email: userContactInfo!.email!,
+        },
+      })
+      .subscribe((response) => {
+        console.log(response);
+        this.router.navigate(['login']);
+      });
   }
-
+  redirectToLogin() {
+    this.router.navigate(['login']);
+  }
+}

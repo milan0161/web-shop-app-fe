@@ -53,6 +53,20 @@
       font-size: 1.1rem;
     }
   }
+  &__link_wrapper{
+    margin-top: 4%;
+    margin-bottom: 4%;
+    text-align: center;
+    button{
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+    }
+    
+  }
   &__contact_info {
     display: flex;
     align-items: flex-start;

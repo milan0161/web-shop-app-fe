@@ -52,6 +52,10 @@
       ></app-custom-text-input>
     </div>
   </div>
+  <div class="register_form__link_wrapper">
+    <span>You already have an account?</span>
+    <span> click <button (click)="redirectToLogin()">here</button> to sign in </span>
+  </div>
   <div class="register_form__button_wrapper">
     <button
       [class.disabled]="registerForm.invalid"
