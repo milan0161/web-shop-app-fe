@@ -16,7 +16,7 @@ export class AuthService {
       responseType: 'text',
     });
   }
-  login(loginObj: Login) {
+  login(loginObj: Login): Observable<User> {
     return this.http.post<User>(`${environment.apiUrl}/users/auth`, loginObj);
   }
 }
