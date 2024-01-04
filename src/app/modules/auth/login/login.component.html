@@ -18,15 +18,16 @@
   </div>
   <div class="login_form__link_wrapper">
     <span>You dont have an account?</span>
-    <span> click <button (click)="redirectToRegister()">here</button> to register </span>
+    <span>
+      click <button (click)="redirectToRegister()">here</button> to register
+    </span>
   </div>
   <div class="login_form__button_wrapper">
-    <button
-      [class.disabled]="loginForm.invalid"
-      [disabled]="loginForm.invalid"
-      (click)="login()"
-      class="login_form__button_wrapper__signup_btn"
-    >
-      SIGN IN
-    </button>
+    <app-custom-button
+      [isDisabled]="loginForm.invalid"
+      buttonType="auth"
+      text="SIGN IN"
+      (clickButton)="login()"
+    ></app-custom-button>
+  </div>
 </div>

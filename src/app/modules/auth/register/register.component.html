@@ -54,16 +54,16 @@
   </div>
   <div class="register_form__link_wrapper">
     <span>You already have an account?</span>
-    <span> click <button (click)="redirectToLogin()">here</button> to sign in </span>
+    <span>
+      click <button (click)="redirectToLogin()">here</button> to sign in
+    </span>
   </div>
   <div class="register_form__button_wrapper">
-    <button
-      [class.disabled]="registerForm.invalid"
-      [disabled]="registerForm.invalid"
-      (click)="register()"
-      class="register_form__button_wrapper__signup_btn"
-    >
-      SIGN UP
-    </button>
+    <app-custom-button
+      buttonType="auth"
+      text="SIGN UP"
+      (clickButton)="register()"
+      [isDisabled]="registerForm.invalid"
+    ></app-custom-button>
   </div>
 </form>

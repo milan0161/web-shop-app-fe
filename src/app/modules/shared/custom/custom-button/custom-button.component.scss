@@ -100,3 +100,13 @@ button {
 .disabled {
   opacity: 0.2;
 }
+.auth {
+  background: $green-light;
+  border: 1px solid $green-dark-1;
+  font-size: 1.1rem;
+  padding: 15px 60px;
+  color: white;
+  font-weight: 400;
+  border-radius: 5px;
+  cursor: pointer;
+}
