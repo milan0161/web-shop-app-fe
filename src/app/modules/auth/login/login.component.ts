@@ -23,7 +23,7 @@ export class LoginComponent {
     const { username, password } = this.loginForm.value;
     this.authService
       .login({ username: username!, password: password! })
-      .subscribe();
+      .subscribe((res) => console.log(res));
   }
   redirectToRegister() {
     this.customRouter.navigate('register');

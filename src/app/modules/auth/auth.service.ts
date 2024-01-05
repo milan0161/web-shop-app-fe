@@ -1,8 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Register } from '../auth/register/models/register.model';
 import { environment } from '../../../environments/environment.development';
-import { Login, User } from './login/models/login.model';
+import { Login, LoginResponse } from './login/models/login.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +16,9 @@ export class AuthService {
     });
   }
   login(loginObj: Login) {
-    return this.http.post<User>(`${environment.apiUrl}/users/auth`, loginObj);
+    return this.http.post<LoginResponse>(
+      `${environment.apiUrl}/users/auth`,
+      loginObj
+    );
   }
 }
