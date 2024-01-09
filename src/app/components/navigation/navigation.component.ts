@@ -10,7 +10,5 @@ import { UserService } from 'src/app/modules/user/user.service';
 export class NavigationComponent {
   LoggedUser: LoginResponse | null = null;
   constructor(private userService: UserService) {}
-  ngOnInit() {
-    this.LoggedUser = this.userService.loggedUser;
-  }
+  ngOnInit() {}
 }
