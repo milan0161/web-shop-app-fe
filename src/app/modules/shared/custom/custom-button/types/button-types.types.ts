@@ -7,4 +7,5 @@ export type BtnType =
   | 'info'
   | 'light'
   | 'dark'
-  | 'turquoise';
+  | 'turquoise'
+  | 'auth';

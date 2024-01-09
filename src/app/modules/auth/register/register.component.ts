@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { confirmPasswordValidator } from '../utils/validators/confirmPasswordValidator';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { RouterService } from 'src/app/core/router/router.service';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +26,29 @@ export class RegisterComponent {
     { validators: confirmPasswordValidator }
   );
 
+  constructor(
+    private authService: AuthService,
+    private customRouter: RouterService
+  ) {}
+
   register() {
-    console.log(this.registerForm.value);
+    const { firstName, lastName, username, password, userContactInfo } =
+      this.registerForm.value;
+
+    this.authService
+      .register({
+        username: username!,
+        password: password!,
+        firstName: firstName!,
+        lastName: lastName!,
+        userContactInfo: {
+          contactPhone: userContactInfo!.contactPhone!,
+          email: userContactInfo!.email!,
+        },
+      })
+      .subscribe((response) => this.customRouter.navigate('login'));
+  }
+  redirectToLogin() {
+    this.customRouter.navigate('login');
   }
 }

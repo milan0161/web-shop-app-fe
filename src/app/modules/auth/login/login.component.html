@@ -1,0 +1,33 @@
+<div class="login_form" [formGroup]="loginForm">
+  <div class="login_form__title_wrapper">
+    <i class="fa fa-user"></i>
+    <h2 class="login_form__title_wrapper__title">SIGN IN</h2>
+  </div>
+  <div class="login_form__input_wrapper">
+    <app-custom-text-input
+      title="username"
+      formControlName="username"
+    ></app-custom-text-input>
+  </div>
+  <div class="login_form__input_wrapper">
+    <app-custom-text-input
+      title="password"
+      type="password"
+      formControlName="password"
+    ></app-custom-text-input>
+  </div>
+  <div class="login_form__link_wrapper">
+    <span>You dont have an account?</span>
+    <span>
+      click <button (click)="redirectToRegister()">here</button> to register
+    </span>
+  </div>
+  <div class="login_form__button_wrapper">
+    <app-custom-button
+      [isDisabled]="loginForm.invalid"
+      buttonType="auth"
+      text="SIGN IN"
+      (clickButton)="login()"
+    ></app-custom-button>
+  </div>
+</div>
