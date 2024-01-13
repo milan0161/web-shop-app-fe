@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { CustomModule } from './modules/shared/custom/custom.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './modules/auth/auth.module';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavigationComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
