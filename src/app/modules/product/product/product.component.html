@@ -1,0 +1,27 @@
+<div class="product">
+  <div class="product__image">
+    <h3>Image soon</h3>
+    <i class="fa fa-image"></i>
+  </div>
+
+  <div class="product__info">
+    <div class="product__info__name">
+      <p>{{product.name}}</p>
+    </div>
+    <div class="product__info__rating">
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+    </div>
+   <div class="product__info__price">
+     <p >
+       {{product.price | rsd}}
+     </p>
+     <button type="button">
+       <i class="fa fa-shopping-cart"></i>
+     </button>
+   </div>
+  </div>
+</div>
