@@ -25,7 +25,6 @@ export class CustomSelectElementComponent implements ControlValueAccessor {
   onTouched!: () => void;
 
   writeValue(obj: any): void {
-    console.log(obj);
     this.selectedOption = obj;
   }
   registerOnChange(fn: any): void {

@@ -3,7 +3,7 @@ export interface Login {
   password: string;
 }
 
-export interface User {
+export interface LoginResponse {
   activated: boolean;
   firstName: string;
   lastName: string;
