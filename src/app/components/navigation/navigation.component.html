@@ -11,11 +11,11 @@
       <span>Contact</span>
       <span>About</span>
     </li>
-    <li *ngIf="LoggedUser" class="navigation__list__item_wrapper">
-      <span>{{ LoggedUser.username }}</span>
+    <li *ngIf="loggedUser$ | async" class="navigation__list__item_wrapper">
+      <span>{{ (loggedUser$ | async)?.username }}</span>
       <button (click)="logout()">Logout</button>
     </li>
-    <li *ngIf="!LoggedUser" class="navigation__list__item_wrapper">
+    <li *ngIf="!(loggedUser$ | async)" class="navigation__list__item_wrapper">
       <a routerLink="register" routerLinkActive="active">Sign up</a>
       <a routerLink="login" routerLinkActive="active">Sign in</a>
     </li>
