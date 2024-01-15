@@ -1,21 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment.development';
 import { LoginResponse } from '../auth/login/models/login.model';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   constructor(private http: HttpClient) {}
-  loggedUser = new BehaviorSubject<LoginResponse | null>(null);
+  private _loggedUser$ = new BehaviorSubject<LoginResponse | null>(null);
 
   getLoggedUser() {
-    this.http
-      .get<LoginResponse>(`${environment.apiUrl}/users/me`)
-      .subscribe((value) => {
-        this.loggedUser.next(value);
-      });
+    return this.http
+      .get<LoginResponse>(`/v1/users/me`)
+      .pipe(tap((res) => this.setLoggedInUser(res)));
+  }
+
+  setLoggedInUser(res: LoginResponse): void {
+    this._loggedUser$.next(res);
+  }
+
+  logoutUser() {
+    this._loggedUser$.next(null);
+  }
+
+  get loggedUser$() {
+    return this._loggedUser$.asObservable();
   }
 }

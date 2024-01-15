@@ -75,8 +75,6 @@ export class CustomTextInputComponent implements ControlValueAccessor, OnInit {
     }
   }
   private checkIsValid() {
-    console.log('uslo');
-
     this.isValid =
       !this.control!.invalid && (this.control!.dirty || this.control!.touched);
   }

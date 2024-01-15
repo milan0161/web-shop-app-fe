@@ -9,6 +9,5 @@ export const requestInterceptor: HttpInterceptorFn = (
   next: HttpHandlerFn
 ) => {
   req = req.clone({ withCredentials: true });
-  console.log(req);
   return next(req);
 };

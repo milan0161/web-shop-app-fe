@@ -11,14 +11,15 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   register(registerObj: Register) {
-    return this.http.post(`${environment.apiUrl}/users`, registerObj, {
+    return this.http.post(`/v1/${environment.apiUrl}/users`, registerObj, {
       responseType: 'text',
     });
   }
   login(loginObj: Login) {
-    return this.http.post<LoginResponse>(
-      `${environment.apiUrl}/users/auth`,
-      loginObj
-    );
+    return this.http.post<LoginResponse>(`/v1/users/auth`, loginObj);
+  }
+
+  logout() {
+    // document.cookie = `Authorization=; max-age=0`;
   }
 }

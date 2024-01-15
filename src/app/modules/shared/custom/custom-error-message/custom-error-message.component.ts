@@ -12,6 +12,5 @@ export class CustomErrorMessageComponent {
 
   toggleMessages() {
     this.showMessages = !this.showMessages;
-    console.log(this.showMessages);
   }
 }

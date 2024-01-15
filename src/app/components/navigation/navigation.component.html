@@ -13,6 +13,7 @@
     </li>
     <li *ngIf="LoggedUser" class="navigation__list__item_wrapper">
       <span>{{ LoggedUser.username }}</span>
+      <button (click)="logout()">Logout</button>
     </li>
     <li *ngIf="!LoggedUser" class="navigation__list__item_wrapper">
       <a routerLink="register" routerLinkActive="active">Sign up</a>
