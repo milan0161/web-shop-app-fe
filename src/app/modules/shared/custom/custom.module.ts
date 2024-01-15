@@ -8,6 +8,7 @@ import { CustomSelectWrapperComponent } from './custom-select-wrapper/custom-sel
 import { CustomSelectOptionComponent } from './custom-select-option/custom-select-option.component';
 import { ErrorsPipe } from './pipes/errors/errors.pipe';
 import { CustomErrorMessageComponent } from './custom-error-message/custom-error-message.component';
+import { RsdPipe } from './pipes/currency/rsd.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CustomErrorMessageComponent } from './custom-error-message/custom-error
     CustomSelectOptionComponent,
     ErrorsPipe,
     CustomErrorMessageComponent,
+    RsdPipe,
   ],
   imports: [CommonModule],
   exports: [
@@ -28,6 +30,7 @@ import { CustomErrorMessageComponent } from './custom-error-message/custom-error
     CustomSelectWrapperComponent,
     CustomSelectOptionComponent,
     CustomErrorMessageComponent,
+    RsdPipe,
   ],
 })
 export class CustomModule {}
