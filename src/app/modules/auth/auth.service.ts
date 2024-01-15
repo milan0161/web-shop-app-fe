@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Register } from '../auth/register/models/register.model';
+import { Register } from './register/models/register.model';
 import { environment } from '../../../environments/environment.development';
 import { Login, LoginResponse } from './login/models/login.model';
+
 
 @Injectable({
   providedIn: 'root',
