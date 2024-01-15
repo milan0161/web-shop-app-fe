@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RouterService } from 'src/app/core/router/router.service';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ import { RouterService } from 'src/app/core/router/router.service';
 export class LoginComponent {
   constructor(
     private authService: AuthService,
-    private customRouter: RouterService
+    private customRouter: RouterService,
+    private userService: UserService
   ) {}
 
   loginForm = new FormGroup({
@@ -22,8 +24,14 @@ export class LoginComponent {
   login() {
     const { username, password } = this.loginForm.value;
     this.authService
-      .login({ username: username!, password: password! })
-      .subscribe();
+      .login({
+        username: username!,
+        password: password!,
+      })
+      .subscribe((user) => {
+        this.userService.setLoggedInUser(user);
+        this.customRouter.navigate('home');
+      });
   }
   redirectToRegister() {
     this.customRouter.navigate('register');
