@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class RsdPipe implements PipeTransform {
 
-  transform(value: string): string {
+  transform(value: number | string): string {
     return value + ' ' + 'RSD'
   }
 

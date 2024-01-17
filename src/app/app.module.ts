@@ -11,15 +11,18 @@ import { HomeComponent } from './pages/home/home.component';
 import { loggedUserInitializer } from './utils/logged-user-initializer';
 import { AuthService } from './modules/auth/auth.service';
 import { requestInterceptor } from './utils/interceptors/request.interceptor';
+import { ProductsPageComponent } from './pages/products-page/products-page.component';
+import {ProductModule} from "./modules/product/product.module";
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, HomeComponent],
+  declarations: [AppComponent, NavigationComponent, HomeComponent, ProductsPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CustomModule,
     ReactiveFormsModule,
     AuthModule,
+    ProductModule
   ],
   providers: [
     provideHttpClient(withInterceptors([requestInterceptor])),
