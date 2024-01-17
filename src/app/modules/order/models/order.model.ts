@@ -1,58 +1,40 @@
-interface OrderProduct {
+import { Register } from '../../auth/register/models/register.model';
+
+interface CreateOrderProduct {
   product: {
     id: string;
-  },
-  quantity: number
+  };
+  quantity: number;
 }
-interface OrderDeliveryInfo {
+interface CreateOrderDeliveryInfo {
   city: {
-    id: string
-  },
-  zip: string,
-  street: string,
-  number: string
+    id: string;
+  };
+  zip: string;
+  street: string;
+  number: string;
 }
-export interface CreateOrder  {
-  orderProducts: OrderProduct [],
-  orderDeliveryInfo: OrderDeliveryInfo
+export interface CreateOrder {
+  orderProducts: CreateOrderProduct[];
+  orderDeliveryInfo: CreateOrderDeliveryInfo;
 }
 
+type OrderUser = Omit<Register, 'password'>;
+type ExcludeCreateOrderDeliveryInfo = Omit<CreateOrderDeliveryInfo, 'city'>;
+interface OrderDeliveryInfo extends ExcludeCreateOrderDeliveryInfo {
+  city: string;
+}
 
-// [
-//   {
-//     "id": 0,
-//     "date": 0,
-//     "total": 0,
-//     "orderProducts": [
-//       {
-//         "name": "string",
-//         "price": 0,
-//         "orderQuantity": 0,
-//         "user": {
-//           "firstName": "string",
-//           "lastName": "string",
-//           "username": "string",
-//           "userContactInfo": {
-//             "email": "string",
-//             "contactPhone": "string"
-//           }
-//         }
-//       }
-//     ],
-//     "user": {
-//       "firstName": "string",
-//       "lastName": "string",
-//       "username": "string",
-//       "userContactInfo": {
-//         "email": "string",
-//         "contactPhone": "string"
-//       }
-//     },
-//     "orderDeliveryInfo": {
-//       "street": "string",
-//       "number": "string",
-//       "city": "string",
-//       "zip": "string"
-//     }
-//   }
-// ]
+interface OrderProduct {
+  name: string;
+  price: number;
+  orderQuantity: number;
+}
+export interface Order {
+  id: number;
+  date: Date;
+  total: number;
+  orderProducts: OrderUser[];
+  user: OrderUser;
+  orderDeliveeryInfo: OrderDeliveryInfo;
+}

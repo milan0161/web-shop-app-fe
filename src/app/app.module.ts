@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { loggedUserInitializer } from './utils/logged-user-initializer';
 import { AuthService } from './modules/auth/auth.service';
 import { requestInterceptor } from './utils/interceptors/request.interceptor';
+import { OrderModule } from './modules/order/order.module';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, HomeComponent],
@@ -20,6 +21,7 @@ import { requestInterceptor } from './utils/interceptors/request.interceptor';
     CustomModule,
     ReactiveFormsModule,
     AuthModule,
+    OrderModule,
   ],
   providers: [
     provideHttpClient(withInterceptors([requestInterceptor])),

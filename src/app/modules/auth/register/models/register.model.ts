@@ -3,8 +3,10 @@ export interface Register {
   password: string;
   firstName: string;
   lastName: string;
-  userContactInfo: {
-    email: string;
-    contactPhone: string;
-  };
+  userContactInfo: UserContactInfo;
+}
+
+export interface UserContactInfo {
+  email: string;
+  contactPhone: string;
 }
