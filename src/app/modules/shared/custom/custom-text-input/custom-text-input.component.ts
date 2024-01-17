@@ -27,14 +27,14 @@ import {
   ],
 })
 export class CustomTextInputComponent implements ControlValueAccessor, OnInit {
-  textValue: string = '';
+  textValue: string | number = '';
   disabled: boolean = false;
   @Input() formControlName?: string;
   @Input() type: string = 'text';
   @Input() title: string = '';
   @Input() invalid: boolean | undefined = false;
   isValid: boolean = true;
-  onChange!: (value: string) => void;
+  onChange!: (value: string | number) => void;
   onTouched!: () => void;
   control?: AbstractControl;
 
@@ -46,7 +46,7 @@ export class CustomTextInputComponent implements ControlValueAccessor, OnInit {
     this.setFormControl();
   }
 
-  writeValue(value: string): void {
+  writeValue(value: string | number): void {
     this.textValue = value;
   }
   registerOnChange(fn: any): void {
@@ -62,6 +62,8 @@ export class CustomTextInputComponent implements ControlValueAccessor, OnInit {
   onValueChange(e: any) {
     if (this.disabled) return;
     this.textValue = e.target.value;
+    if(this.type === 'number')
+      this.textValue = Number(this.textValue)
     this.onChange(this.textValue);
     this.onTouched();
     this.checkIsValid();

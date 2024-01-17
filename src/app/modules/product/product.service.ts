@@ -15,15 +15,15 @@ export class ProductService {
   }
 
   createProduct(createProduct: CreateProduct){
-    this.httpClient.post(`${environment.apiUrl}/products`, createProduct)
+    return this.httpClient.post(`/v1/products`, createProduct)
   }
 
   updateProduct(updateProduct: Product){
-    this.httpClient.put(`${environment.apiUrl}/products`, updateProduct)
+    return this.httpClient.put(`${environment.apiUrl}/products`, updateProduct)
   }
 
   deleteProduct(id: number){
-    this.httpClient.delete(`${environment.apiUrl}/products/${id}`)
+    return this.httpClient.delete(`${environment.apiUrl}/products/${id}`)
   }
 
   getProductsAdmin():Observable<Product[]>{

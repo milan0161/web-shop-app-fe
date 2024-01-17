@@ -1,0 +1,14 @@
+<div [formGroup]="addProductForm" class="add-product-form">
+  <div class="add-product-form__form-control">
+    <app-custom-text-input formControlName="name" title="name"></app-custom-text-input>
+  </div>
+  <div class="add-product-form__form-control">
+    <app-custom-text-input formControlName="price" type="number" title="price"></app-custom-text-input>
+  </div>
+  <div class="add-product-form__form-control">
+    <app-custom-text-input formControlName="quantity" type='number' title="quantity"></app-custom-text-input>
+  </div>
+  <div class="add-product-form__form-control">
+    <app-custom-button type="button" [isDisabled]="addProductForm.invalid" (clickButton)="createProduct()" buttonType="auth" text="Submit"></app-custom-button>
+  </div>
+</div>
