@@ -13,7 +13,6 @@
       grid-template-columns: repeat(2,1fr);
     }
     @include breakpoint('sm'){
->>>>>>> f9db4d3 (remove ng If)
       display: flex;
       flex-direction: column;
       justify-content: center;
