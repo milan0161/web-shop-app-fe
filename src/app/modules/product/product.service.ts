@@ -14,15 +14,15 @@ export class ProductService {
   }
 
   createProduct(createProduct: CreateProduct){
-    this.httpClient.post('/v1/products', createProduct)
+    return this.httpClient.post(`/v1/products`, createProduct)
   }
 
   updateProduct(updateProduct: Product){
-    this.httpClient.put('/v1/products', updateProduct)
+    return this.httpClient.put('/v1/products', updateProduct)
   }
 
   deleteProduct(id: number){
-    this.httpClient.delete('/v1/products/${id}')
+    return this.httpClient.delete('/v1/products/${id}')
   }
 
   getProductsAdmin():Observable<Product[]>{
