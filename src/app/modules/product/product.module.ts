@@ -7,7 +7,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductsPageComponent } from './pages/products-page/products-page.component';
 
 @NgModule({
-  declarations: [ProductComponent, ProductsPageComponent],
+  declarations: [ProductComponent, ProductsPageComponent, ProductFormComponent],
   imports: [CommonModule, CustomModule, ReactiveFormsModule],
 })
   export class ProductModule {}
