@@ -30,7 +30,7 @@ export class LoginComponent {
       })
       .subscribe((user) => {
         this.userService.setLoggedInUser(user);
-        this.customRouter.navigate('home');
+        this.customRouter.navigate('dashboard');
       });
   }
   redirectToRegister() {
