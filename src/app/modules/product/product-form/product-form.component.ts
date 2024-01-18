@@ -10,8 +10,8 @@ import { ProductService } from '../product.service';
 export class ProductFormComponent {
   addProductForm = new FormGroup({
     name: new FormControl<string>('', [Validators.required]),
-    price: new FormControl<number>(0, [Validators.required]),
-    quantity: new FormControl<number>(0, [Validators.required]),
+    price: new FormControl<number>(0, {nonNullable: true, validators: [Validators.required]}),
+    quantity: new FormControl<number>(0, {nonNullable: true, validators: [Validators.required]},),
   });
   constructor(private productService: ProductService) {}
   createProduct() {
