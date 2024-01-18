@@ -7,6 +7,7 @@ import { ProductService } from '../../product.service';
   styleUrls: ['./products-page.component.scss'],
 })
 export class ProductsPageComponent {
-  products$ = this.productService.getProducts();
-  constructor(private productService: ProductService) {}
+  products$ = this.productService.getProducts()
+  constructor(private productService: ProductService) {
+  }
 }

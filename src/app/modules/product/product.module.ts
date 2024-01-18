@@ -6,7 +6,9 @@ import { ProductsPageComponent } from './pages/products-page/products-page.compo
 
 @NgModule({
   declarations: [ProductComponent, ProductsPageComponent],
-  imports: [CommonModule, CustomModule],
-  exports: [ProductComponent, ProductsPageComponent],
+  imports: [
+    CommonModule,
+    CustomModule
+  ],
 })
-export class ProductModule {}
+  export class ProductModule {}
