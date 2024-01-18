@@ -1,0 +1,24 @@
+@import '../../../../../styles/breakpoints';
+.products-wrapper{
+  width: 80%;
+  margin: auto;
+  &__products-list{
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    @include breakpoint('lg'){
+    grid-template-columns: repeat(3,1fr);
+    }
+    @include  breakpoint('md'){
+      grid-template-columns: repeat(2,1fr);
+    }
+    @include breakpoint('sm'){
+>>>>>>> f9db4d3 (remove ng If)
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}
