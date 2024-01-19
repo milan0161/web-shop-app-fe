@@ -1,24 +1,12 @@
 <aside class="side-bar">
   <nav class="side-bar__nav">
     <div class="side-bar__nav__list">
-      <div class="side-bar__nav__list__item">
-        <button>
-          <i class="fa fa-laptop"></i>
-          <span>Products</span>
-        </button>
-      </div>
-      <div class="side-bar__nav__list__item">
-        <button>
-          <i class="fa fa-clipboard"></i>
-          <span>Orders</span>
-        </button>
-      </div>
-      <div class="side-bar__nav__list__item">
-        <button>
-          <i class="fa fa-user"></i>
-          <span>Users</span>
-        </button>
-      </div>
+      <app-sidebar-item
+        class="side-bar__nav__list__wrapper"
+        *ngFor="let item of sidebars"
+        [sidebarItem]="item"
+        [userRole]="(currentUser$ | async)!.role"
+      ></app-sidebar-item>
     </div>
     <div class="side-bar__nav__logout">
       <button type="button" (click)="logout()">Logout</button>

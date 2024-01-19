@@ -41,33 +41,9 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-
-      &__item {
+      padding: 0 0 0 20px;
+      &__wrapper {
         width: 100%;
-        padding: 15px 0;
-
-        &:hover button {
-          transform: scale(105%);
-          border-bottom: 2px solid $green-light;
-          border-right: 2px solid $green-light;
-        }
-        button {
-          transition: 300ms ease;
-          i {
-            width: 50px;
-            font-size: 1.9rem;
-          }
-          cursor: pointer;
-          background: transparent;
-          width: 98%;
-          height: 100%;
-          border: none;
-          font-size: 1.2rem;
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          color: $green-light;
-        }
       }
     }
   }

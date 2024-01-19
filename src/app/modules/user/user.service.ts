@@ -24,6 +24,9 @@ export class UserService {
     this._loggedUser$.next(null);
   }
 
+  getRoles() {
+    return this.http.get('/v1/roles');
+  }
   get loggedUser$() {
     return this._loggedUser$.asObservable();
   }

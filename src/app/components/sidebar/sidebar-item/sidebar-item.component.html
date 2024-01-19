@@ -1,0 +1,18 @@
+<div *ngIf="sidebarItem.availableFor.includes(userRole)" class="side-bar__item">
+  <a [routerLink]="sidebarItem.route">
+    <i [class]="sidebarItem.icon"></i>
+    <span>{{ sidebarItem.title }}</span>
+  </a>
+</div>
+<!-- <div class="side-bar__nav__list__item">
+  <button>
+    <i class="fa fa-clipboard"></i>
+    <span>Orders</span>
+  </button>
+</div>
+<div class="side-bar__nav__list__item">
+  <button>
+    <i class="fa fa-user"></i>
+    <span>Users</span>
+  </button>
+</div> -->

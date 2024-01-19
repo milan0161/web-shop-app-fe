@@ -11,4 +11,4 @@ export interface LoginResponse {
   username: string;
 }
 
-export type Role = 'USER';
+export type Role = 'USER' | 'ADMINISTRATOR' | 'WAREHOUSE_ADMINISTRATOR';
