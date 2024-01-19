@@ -13,10 +13,11 @@ import { AuthService } from './modules/auth/auth.service';
 import { requestInterceptor } from './core/interceptors/request.interceptor'
 import { ProductModule } from './modules/product/product.module'
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, HomeComponent, DashboardComponent],
+  declarations: [AppComponent, NavigationComponent, HomeComponent, DashboardComponent, SidebarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
