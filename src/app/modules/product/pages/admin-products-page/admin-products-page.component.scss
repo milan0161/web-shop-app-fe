@@ -1,0 +1,33 @@
+@import "../../../../../styles/breakpoints";
+.products-wrapper {
+  height: 100%;
+  width: 80%;
+  margin: 5% auto;
+  &__add-product-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+  }
+  &__products-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    @include breakpoint("lg") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include breakpoint("md") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint("sm") {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}
+.edit-button {
+  border: 1px solid black;
+  padding: 15px 20px;
+}

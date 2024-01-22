@@ -1,8 +1,10 @@
 @import "../../../../../styles/color-palette.scss";
 button {
-  padding: 7px 10px;
   cursor: pointer;
   font-size: 1.1rem;
+  width: 100px;
+  padding: 5px;
+  height: 35px;
   transition: 300ms ease-in;
 }
 
@@ -96,11 +98,33 @@ button {
     background: #fff;
   }
 }
+.green-light {
+  background-color: $green-light;
+  color: #fff;
+  border: 1px solid $green-light;
+  border-radius: 5px;
+  &:hover {
+    color: $green-light;
+    background: #fff;
+  }
+}
+.green-dark {
+  background-color: $green-dark-1;
+  color: #fff;
+  border: 1px solid$green-dark-1;
+  border-radius: 5px;
+  &:hover {
+    color: $green-dark-1;
+    background: #fff;
+  }
+}
 
 .disabled {
   opacity: 0.2;
 }
 .auth {
+  width: auto;
+  height: auto;
   background: $green-light;
   border: 1px solid $green-dark-1;
   font-size: 1.1rem;

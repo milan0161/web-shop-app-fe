@@ -1,0 +1,24 @@
+<div class="products-wrapper">
+  <div class="products-wrapper__add-product-wrapper">
+    <app-custom-button
+      type="button"
+      buttonType="auth"
+      text="Add new product"
+      (clickButton)="addNewProduct()"
+    ></app-custom-button>
+  </div>
+  <div class="products-wrapper__products-list">
+    <app-product
+      *ngFor="let product of products$ | async"
+      [product]="product"
+      [role]="(currentUser$ | async)!.role"
+    >
+      <app-custom-button
+        customClass="edit-button"
+        buttonType="green-light"
+        text="Edit"
+      ></app-custom-button>
+      <app-custom-button buttonType="danger" text="Delete"></app-custom-button>
+    </app-product>
+  </div>
+</div>
