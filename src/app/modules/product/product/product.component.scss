@@ -60,28 +60,7 @@
       }
     }
   }
-  &__edit {
-    margin-top: 5%;
+  &__content-projection {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10%;
-    button {
-      width: 100%;
-      border: none;
-      padding: 5px 0;
-      color: #fff;
-      transition: 300ms ease;
-      cursor: pointer;
-      &:hover {
-        transform: scale(105%);
-      }
-    }
-    &__delete-button {
-      background: red;
-    }
-    &__edit-button {
-      background: $green-dark-1;
-    }
   }
 }

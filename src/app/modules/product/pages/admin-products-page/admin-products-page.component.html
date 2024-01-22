@@ -2,8 +2,8 @@
   <div class="products-wrapper__add-product-wrapper">
     <app-custom-button
       type="button"
-      buttonType="auth"
-      text="Add new product"
+      buttonType="green-light"
+      text="Add"
       (clickButton)="addNewProduct()"
     ></app-custom-button>
   </div>
@@ -13,12 +13,17 @@
       [product]="product"
       [role]="(currentUser$ | async)!.role"
     >
-      <app-custom-button
-        customClass="edit-button"
-        buttonType="green-light"
-        text="Edit"
-      ></app-custom-button>
-      <app-custom-button buttonType="danger" text="Delete"></app-custom-button>
+      <div class="button-wrapper">
+        <app-custom-button
+          customClass="edit-button"
+          buttonType="green-light"
+          text="Edit"
+        ></app-custom-button>
+        <app-custom-button
+          buttonType="danger"
+          text="Delete"
+        ></app-custom-button>
+      </div>
     </app-product>
   </div>
 </div>

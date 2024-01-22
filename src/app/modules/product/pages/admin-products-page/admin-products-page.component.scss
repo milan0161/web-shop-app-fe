@@ -27,7 +27,9 @@
     }
   }
 }
-.edit-button {
-  border: 1px solid black;
-  padding: 15px 20px;
+.button-wrapper {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
