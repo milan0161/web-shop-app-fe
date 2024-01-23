@@ -7,83 +7,83 @@ button {
 }
 
 .danger {
-  background-color: red;
-  color: white;
-  border: 1px solid red;
+  background-color: #dc3545;
+  color: #f8f9fa;
+  border: 1px solid #dc3545;
   border-radius: 5px;
   &:hover {
-    color: red;
-    background: #fff;
+    color: #dc3545;
+    background: #f8f9fa;
   }
 }
 .primary {
-  background: blue;
+  background: $green-dark-1;
   color: white;
-  border: 1px solid blue;
+  border: 1px solid $green-dark-1;
   border-radius: 5px;
   &:hover {
-    color: blue;
+    color: $green-dark-1;
     background: #fff;
   }
 }
 .secondary {
-  background-color: grey;
+  background-color: #6c757d;
   color: white;
-  border: 1px solid grey;
+  border: 1px solid #6c757d;
   border-radius: 5px;
   &:hover {
-    color: grey;
+    color: #6c757d;
     background: #fff;
   }
 }
 .success {
-  background-color: green;
+  background-color: $green-light;
   color: white;
-  border: 1px solid green;
+  border: 1px solid $green-light;
   border-radius: 5px;
   &:hover {
-    color: green;
+    color: $green-light;
     background: #fff;
   }
 }
 .warning {
-  background-color: #ffc107;
+  background-color: #e1ad01;
   color: white;
-  border: 1px solid #ffc107;
+  border: 1px solid #e1ad01;
   border-radius: 5px;
   &:hover {
-    color: #ffc107;
+    color: #e1ad01;
     background: #fff;
   }
 }
 .info {
-  background-color: turquoise;
-  color: white;
-  border: 1px solid turquoise;
+  background-color: #17a2b8;
+  color: #f8f9fa;
+  border: 1px solid #17a2b8;
   border-radius: 5px;
   &:hover {
-    color: turquoise;
-    background: #fff;
+    color: #17a2b8;
+    background: #f8f9fa;
   }
 }
 .light {
-  background-color: rgb(240, 238, 238);
-  color: #000;
-  border: 1px solid rgb(240, 238, 238);
+  background-color:#f8f9fa;
+  color: #3e363f;
+  border: 1px solid #f8f9fa;
   border-radius: 5px;
   &:hover {
-    color: rgb(240, 238, 238);
-    background: #000;
+    color: #f8f9fa;
+    background: #3e363f;
   }
 }
 .dark {
-  background-color: #000;
-  color: #fff;
-  border: 1px solid #000;
+  background-color: #3e363f;
+  color:#f8f9fa;
+  border: 1px solid #3e363f;
   border-radius: 5px;
   &:hover {
-    color: #000;
-    background: #fff;
+    color: #3e363f;
+    background:#f8f9fa;
   }
 }
 .turquoise {
