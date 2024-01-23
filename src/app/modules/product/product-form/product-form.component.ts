@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../product.service';
+import { DialogRef } from '../../shared/custom/dialog/dialog.ref';
+import { DIALOG_DATA } from '../../shared/custom/dialog/dialog.tokens';
 
 @Component({
   selector: 'app-product-form',
@@ -10,14 +12,21 @@ import { ProductService } from '../product.service';
 export class ProductFormComponent {
   addProductForm = new FormGroup({
     name: new FormControl<string>('', [Validators.required]),
-    price: new FormControl<number>(0, {nonNullable: true, validators: [Validators.required]}),
-    quantity: new FormControl<number>(0, {nonNullable: true, validators: [Validators.required]},),
+    price: new FormControl<number>(0, {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
+    quantity: new FormControl<number>(0, {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
   });
-  constructor(private productService: ProductService) {}
+  constructor(private dialogRef: DialogRef) {}
+
   createProduct() {
-    const { quantity, price, name } = this.addProductForm.value;
-    this.productService
-      .createProduct({ quantity: quantity!, price: price!, name: name! })
-      .subscribe();
+    this.dialogRef.close(this.addProductForm.value);
+  }
+  close() {
+    this.dialogRef.close();
   }
 }
