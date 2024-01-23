@@ -13,17 +13,6 @@
       [product]="product"
       [role]="(currentUser$ | async)!.role"
     >
-      <div class="button-wrapper">
-        <app-custom-button
-          customClass="edit-button"
-          buttonType="green-light"
-          text="Edit"
-        ></app-custom-button>
-        <app-custom-button
-          buttonType="danger"
-          text="Delete"
-        ></app-custom-button>
-      </div>
     </app-product>
   </div>
 </div>
