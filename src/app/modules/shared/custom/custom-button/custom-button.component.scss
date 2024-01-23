@@ -12,7 +12,6 @@ button {
   background-color: red;
   color: white;
   border: 1px solid red;
-  border-radius: 5px;
   &:hover {
     color: red;
     background: #fff;
@@ -22,7 +21,6 @@ button {
   background: blue;
   color: white;
   border: 1px solid blue;
-  border-radius: 5px;
   &:hover {
     color: blue;
     background: #fff;
@@ -32,7 +30,6 @@ button {
   background-color: grey;
   color: white;
   border: 1px solid grey;
-  border-radius: 5px;
   &:hover {
     color: grey;
     background: #fff;
@@ -42,7 +39,6 @@ button {
   background-color: green;
   color: white;
   border: 1px solid green;
-  border-radius: 5px;
   &:hover {
     color: green;
     background: #fff;
@@ -52,7 +48,6 @@ button {
   background-color: #ffc107;
   color: white;
   border: 1px solid #ffc107;
-  border-radius: 5px;
   &:hover {
     color: #ffc107;
     background: #fff;
@@ -62,7 +57,6 @@ button {
   background-color: turquoise;
   color: white;
   border: 1px solid turquoise;
-  border-radius: 5px;
   &:hover {
     color: turquoise;
     background: #fff;
@@ -72,7 +66,6 @@ button {
   background-color: rgb(240, 238, 238);
   color: #000;
   border: 1px solid rgb(240, 238, 238);
-  border-radius: 5px;
   &:hover {
     color: rgb(240, 238, 238);
     background: #000;
@@ -82,7 +75,6 @@ button {
   background-color: #000;
   color: #fff;
   border: 1px solid #000;
-  border-radius: 5px;
   &:hover {
     color: #000;
     background: #fff;
@@ -92,7 +84,6 @@ button {
   background-color: $turquoise;
   color: #fff;
   border: 1px solid $turquoise;
-  border-radius: 5px;
   &:hover {
     color: $turquoise;
     background: #fff;
@@ -102,7 +93,6 @@ button {
   background-color: $green-light;
   color: #fff;
   border: 1px solid $green-light;
-  border-radius: 5px;
   &:hover {
     color: $green-light;
     background: #fff;
@@ -112,7 +102,6 @@ button {
   background-color: $green-dark-1;
   color: #fff;
   border: 1px solid$green-dark-1;
-  border-radius: 5px;
   &:hover {
     color: $green-dark-1;
     background: #fff;
@@ -131,6 +120,5 @@ button {
   padding: 15px 60px;
   color: white;
   font-weight: 400;
-  border-radius: 5px;
   cursor: pointer;
 }

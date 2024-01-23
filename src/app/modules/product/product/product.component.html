@@ -1,25 +1,20 @@
 <div *ngIf="product" class="product">
-  <div class="product__image">
-    <h3>Image soon</h3>
-    <i class="fa fa-image"></i>
-  </div>
-
-  <div class="product__info">
-    <div class="product__info__name">
-      <p>{{ product.name }}</p>
+  <button *ngIf="role === 'ADMINISTRATOR'" class="product__option-button">
+    Options
+  </button>
+  <div class="product__image"></div>
+  <div class="product__details">
+    <h3>{{ product.name }}</h3>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur,
+      totam. Reiciendis, odit ad.
+    </p>
+    <div class="product__details__divider"></div>
+    <div class="product__details__price">
+      <p>{{ product.price | rsd }}</p>
+      <div>
+        <i class="fa fa-shopping-cart"></i>
+      </div>
     </div>
-    <div class="product__info__rating">
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-    </div>
-    <div class="product__info__price">
-      <p>
-        {{ product.price | rsd }}
-      </p>
-    </div>
-    <ng-content></ng-content>
   </div>
 </div>
