@@ -7,13 +7,13 @@ button {
 }
 
 .danger {
-  background-color: #dc3545;
-  color: #f8f9fa;
-  border: 1px solid #dc3545;
+  background-color: $danger;
+  color: $light;
+  border: 1px solid $danger;
   border-radius: 5px;
   &:hover {
-    color: #dc3545;
-    background: #f8f9fa;
+    color: $danger;
+    background: $light;
   }
 }
 .primary {
@@ -27,12 +27,12 @@ button {
   }
 }
 .secondary {
-  background-color: #6c757d;
+  background-color: $secondary;
   color: white;
-  border: 1px solid #6c757d;
+  border: 1px solid $secondary;
   border-radius: 5px;
   &:hover {
-    color: #6c757d;
+    color: $secondary;
     background: #fff;
   }
 }
@@ -47,43 +47,43 @@ button {
   }
 }
 .warning {
-  background-color: #e1ad01;
+  background-color: $warning;
   color: white;
-  border: 1px solid #e1ad01;
+  border: 1px solid $warning;
   border-radius: 5px;
   &:hover {
-    color: #e1ad01;
+    color: $warning;
     background: #fff;
   }
 }
 .info {
   background-color: #17a2b8;
-  color: #f8f9fa;
+  color: $light;
   border: 1px solid #17a2b8;
   border-radius: 5px;
   &:hover {
     color: #17a2b8;
-    background: #f8f9fa;
+    background: $light;
   }
 }
 .light {
-  background-color:#f8f9fa;
-  color: #3e363f;
-  border: 1px solid #f8f9fa;
+  background-color: $light;
+  color: $dark;
+  border: 1px solid $light;
   border-radius: 5px;
   &:hover {
-    color: #f8f9fa;
-    background: #3e363f;
+    color: $light;
+    background: $dark;
   }
 }
 .dark {
-  background-color: #3e363f;
-  color:#f8f9fa;
-  border: 1px solid #3e363f;
+  background-color: $dark;
+  color: $light;
+  border: 1px solid $dark;
   border-radius: 5px;
   &:hover {
-    color: #3e363f;
-    background:#f8f9fa;
+    color: $dark;
+    background: $light;
   }
 }
 .turquoise {

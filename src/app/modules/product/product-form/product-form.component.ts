@@ -1,8 +1,7 @@
-import { Component, Inject, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ProductService } from '../product.service';
 import { DialogRef } from '../../shared/custom/dialog/dialog.ref';
-import { DIALOG_DATA } from '../../shared/custom/dialog/dialog.tokens';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-form',
@@ -13,20 +12,34 @@ export class ProductFormComponent {
   addProductForm = new FormGroup({
     name: new FormControl<string>('', [Validators.required]),
     price: new FormControl<number>(0, {
-      nonNullable: true,
       validators: [Validators.required],
+      nonNullable: true,
     }),
     quantity: new FormControl<number>(0, {
-      nonNullable: true,
       validators: [Validators.required],
+      nonNullable: true,
     }),
   });
-  constructor(private dialogRef: DialogRef) {}
+  constructor(
+    private dialogRef: DialogRef,
+    private productService: ProductService
+  ) {}
 
   createProduct() {
-    this.dialogRef.close(this.addProductForm.value);
+    const { name, price, quantity } = this.addProductForm.value;
+    this.productService
+      .createProduct({ name: name!, price: price!, quantity: quantity! })
+      .subscribe(() => {
+        this.refetchProducts();
+        this.dialogRef.close();
+      });
   }
   close() {
     this.dialogRef.close();
+  }
+
+  refetchProducts() {
+    this.productService.getProducts().subscribe();
+    this.productService.getProductsAdmin().subscribe();
   }
 }
