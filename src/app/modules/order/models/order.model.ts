@@ -34,7 +34,7 @@ export interface Order {
   id: number;
   date: Date;
   total: number;
-  orderProducts: OrderUser[];
+  orderProducts: OrderProduct[];
   user: OrderUser;
   orderDeliveeryInfo: OrderDeliveryInfo;
 }

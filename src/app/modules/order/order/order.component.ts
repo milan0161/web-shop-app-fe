@@ -6,11 +6,7 @@ import { OrderService } from '../order.service';
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss'],
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent {
+  orders$ = this.orderService.getOrders();
   constructor(private orderService: OrderService) {}
-  ngOnInit(): void {
-    this.orderService
-      .getMostPopularOrders()
-      .subscribe((order) => console.log(order));
-  }
 }

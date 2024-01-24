@@ -9,7 +9,7 @@ export class OrderService {
   constructor(private http: HttpClient) {}
 
   createOrder(order: CreateOrder) {
-    this.http.post('/v1/orders', order);
+    return this.http.post<Order>('/v1/orders', order);
   }
 
   getOrders() {
