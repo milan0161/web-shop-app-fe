@@ -5,6 +5,7 @@ import { HomeComponent } from 'src/app/pages/home/home.component';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { AdminProductsPageComponent } from 'src/app/modules/product/pages/admin-products-page/admin-products-page.component';
+import { AdminGuard } from '../guards/admin.guard';
 
 export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -14,11 +15,11 @@ export const routes: Routes = [
     canActivate: [AuthGuard()],
     component: DashboardComponent,
     children: [
-      // {
-      //   path: '',
-      //   component: ,
-      // },
-      { path: 'admin-products', component: AdminProductsPageComponent },
+      {
+        path: 'admin-products',
+        canActivate: [AdminGuard()],
+        component: AdminProductsPageComponent,
+      },
     ],
   },
   { path: '', component: HomeComponent },
