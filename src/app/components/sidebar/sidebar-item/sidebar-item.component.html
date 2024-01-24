@@ -1,0 +1,6 @@
+<div *ngIf="visible" class="side-bar__item">
+  <a [routerLink]="sidebarItem.route">
+    <i [class]="sidebarItem.icon"></i>
+    <span>{{ sidebarItem.title }}</span>
+  </a>
+</div>

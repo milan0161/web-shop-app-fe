@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment.development";
 import {Observable} from "rxjs";
 import {CreateProduct, Product} from "./models/product.model";
 
@@ -11,22 +10,22 @@ export class ProductService {
   constructor(private httpClient: HttpClient) { }
 
   getProducts(): Observable<Product[]>{
-    return this.httpClient.get<Product[]>(`${environment.apiUrl}/products`)
+    return this.httpClient.get<Product[]>('/v1/products')
   }
 
   createProduct(createProduct: CreateProduct){
-    this.httpClient.post(`${environment.apiUrl}/products`, createProduct)
+    return this.httpClient.post(`/v1/products`, createProduct)
   }
 
   updateProduct(updateProduct: Product){
-    this.httpClient.put(`${environment.apiUrl}/products`, updateProduct)
+    return this.httpClient.put('/v1/products', updateProduct)
   }
 
   deleteProduct(id: number){
-    this.httpClient.delete(`${environment.apiUrl}/products/${id}`)
+    return this.httpClient.delete('/v1/products/${id}')
   }
 
   getProductsAdmin():Observable<Product[]>{
-    return this.httpClient.get<Product[]>(`${environment.apiUrl}/products/administrators`)
+    return this.httpClient.get<Product[]>('/v1/products/administrators')
   }
 }

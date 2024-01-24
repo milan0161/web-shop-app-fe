@@ -1,0 +1,17 @@
+<aside class="side-bar">
+  <nav class="side-bar__nav">
+    <div class="side-bar__nav__list">
+      <ng-container *ngIf="currentUser$ | async as currentUser">
+        <app-sidebar-item
+          class="side-bar__nav__list__wrapper"
+          *ngFor="let item of sidebars"
+          [sidebarItem]="item"
+          [userRole]="currentUser.role"
+        ></app-sidebar-item>
+      </ng-container>
+    </div>
+    <div class="side-bar__nav__logout">
+      <button type="button" (click)="logout()">Logout</button>
+    </div>
+  </nav>
+</aside>

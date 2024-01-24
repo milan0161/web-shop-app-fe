@@ -8,12 +8,17 @@
         [routerLinkActiveOptions]="{ exact: true }"
         >Home</a
       >
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Dashboard</a
+      >
       <span>Contact</span>
       <span>About</span>
     </li>
     <li *ngIf="loggedUser$ | async" class="navigation__list__item_wrapper">
-      <span>{{ (loggedUser$ | async)?.username }}</span>
-      <button (click)="logout()">Logout</button>
+      <p>Welcome {{ (loggedUser$ | async)?.username }}</p>
     </li>
     <li *ngIf="!(loggedUser$ | async)" class="navigation__list__item_wrapper">
       <a routerLink="register" routerLinkActive="active">Sign up</a>

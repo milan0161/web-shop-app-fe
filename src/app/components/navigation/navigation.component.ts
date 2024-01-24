@@ -11,13 +11,5 @@ import { UserService } from 'src/app/modules/user/user.service';
 })
 export class NavigationComponent {
   loggedUser$: Observable<LoginResponse | null> = this.userService.loggedUser$;
-  constructor(
-    private userService: UserService,
-    private authService: AuthService
-  ) {}
-
-  logout() {
-    this.authService.logout();
-    this.userService.logoutUser();
-  }
+  constructor(private userService: UserService) {}
 }

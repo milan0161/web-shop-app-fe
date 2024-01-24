@@ -1,0 +1,10 @@
+@import '../../../../styles/box-shadows';
+.add-product-form{
+  width: 30%;
+  margin: auto;
+  box-shadow: $shadow-light;
+  padding: 15px 3%;
+  &__form-control{
+    margin: 10px 0;
+  }
+}
