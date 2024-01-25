@@ -1,10 +1,23 @@
-@import '../../../../styles/box-shadows';
-.add-product-form{
-  width: 30%;
+@import "../../../../styles/box-shadows";
+@import "../../../../styles/color-palette.scss";
+.add-product-form {
+  h3 {
+    text-align: center;
+    color: $green-light;
+    font-size: 1.5rem;
+    margin: 15px 0;
+  }
+  width: 30vw;
   margin: auto;
   box-shadow: $shadow-light;
   padding: 15px 3%;
-  &__form-control{
+  &__form-control {
     margin: 10px 0;
+  }
+  &__button_wrapper {
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
   }
 }
