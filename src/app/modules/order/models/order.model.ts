@@ -1,24 +1,11 @@
-import { Register } from '../../auth/register/models/register.model';
+import { OrderDeliveryInfo } from './orderDelivery.model';
+import { CreateOrderProduct } from './orderProduct.model';
+import { OrderUser } from './orderUser';
 
-type City = string | { id: string };
-interface CreateOrderProduct {
-  product: {
-    id: string;
-  };
-  quantity: number;
-}
-interface OrderDeliveryInfo {
-  city: City;
-  zip: string;
-  street: string;
-  number: string;
-}
 export interface CreateOrder {
   orderProducts: CreateOrderProduct[];
   orderDeliveryInfo: OrderDeliveryInfo;
 }
-
-type OrderUser = Omit<Register, 'password'>;
 
 interface OrderProduct {
   name: string;
