@@ -10,12 +10,12 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { HomeComponent } from './pages/home/home.component';
 import { loggedUserInitializer } from './utils/logged-user-initializer';
 import { AuthService } from './modules/auth/auth.service';
+import { OrderModule } from './modules/order/order.module';
 import { requestInterceptor } from './core/interceptors/request.interceptor'
 import { ProductModule } from './modules/product/product.module'
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarItemComponent } from './components/sidebar/sidebar-item/sidebar-item.component';
-
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, HomeComponent, DashboardComponent, SidebarComponent, SidebarItemComponent],
@@ -25,6 +25,7 @@ import { SidebarItemComponent } from './components/sidebar/sidebar-item/sidebar-
     CustomModule,
     ReactiveFormsModule,
     AuthModule,
+    OrderModule,
     ProductModule,
   ],
   providers: [
