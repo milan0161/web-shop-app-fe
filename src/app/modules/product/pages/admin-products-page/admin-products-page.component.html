@@ -1,0 +1,18 @@
+<div class="products-wrapper">
+  <div class="products-wrapper__add-product-wrapper">
+    <app-custom-button
+      type="button"
+      buttonType="green-light"
+      text="Add"
+      (clickButton)="addNewProduct()"
+    ></app-custom-button>
+  </div>
+  <div class="products-wrapper__products-list">
+    <app-product
+      *ngFor="let product of products$ | async"
+      [product]="product"
+      [role]="(currentUser$ | async)!.role"
+    >
+    </app-product>
+  </div>
+</div>
