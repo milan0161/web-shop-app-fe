@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OrderService } from '../order.service';
+import { Order } from '../models/order.model';
 
 @Component({
   selector: 'app-order',
@@ -7,6 +8,6 @@ import { OrderService } from '../order.service';
   styleUrls: ['./order.component.scss'],
 })
 export class OrderComponent {
-  orders$ = this.orderService.getOrders();
-  constructor(private orderService: OrderService) {}
+  @Input() order!: Order;
+  constructor() {}
 }
