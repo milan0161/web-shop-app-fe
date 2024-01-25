@@ -12,11 +12,11 @@ export class ProductFormComponent {
   addProductForm = new FormGroup({
     name: new FormControl<string>('', [Validators.required]),
     price: new FormControl<number>(0, {
-      validators: [Validators.required],
+      validators: [Validators.required, Validators.min(1)],
       nonNullable: true,
     }),
     quantity: new FormControl<number>(0, {
-      validators: [Validators.required],
+      validators: [Validators.required, Validators.min(1)],
       nonNullable: true,
     }),
   });
@@ -29,17 +29,11 @@ export class ProductFormComponent {
     const { name, price, quantity } = this.addProductForm.value;
     this.productService
       .createProduct({ name: name!, price: price!, quantity: quantity! })
-      .subscribe(() => {
-        this.refetchProducts();
-        this.dialogRef.close();
+      .subscribe((res) => {
+        this.dialogRef.close(res);
       });
   }
   close() {
     this.dialogRef.close();
-  }
-
-  refetchProducts() {
-    this.productService.getProducts().subscribe();
-    this.productService.getProductsAdmin().subscribe();
   }
 }
