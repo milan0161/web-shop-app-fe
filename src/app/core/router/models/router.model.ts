@@ -3,4 +3,5 @@ export interface CustomRouter {
   register: string;
   dashboard: string;
   home: string;
+  products: string;
 }

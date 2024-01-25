@@ -4,5 +4,6 @@ export const routerConfig: CustomRouter = {
   register: 'register',
   login: 'login',
   dashboard: 'dashboard',
-  home: ''
+  products: 'products',
+  home: '',
 };
