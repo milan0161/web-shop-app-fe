@@ -1,18 +1,41 @@
-@import '../../../../../styles/breakpoints';
-.products-wrapper{
+@import "../../../../../styles/breakpoints";
+@import "../../../../../styles/color-palette.scss";
+.products-wrapper {
   width: 80%;
   margin: auto;
-  &__products-list{
-    margin-top: 15px;
+  &__header {
+    margin: 3% 0;
+    h3 {
+      text-align: center;
+      font-size: 1.5rem;
+      color: $green-dark-1;
+      letter-spacing: 2px;
+      text-decoration: underline;
+    }
+    p {
+      padding: 10px;
+      margin: 0 auto;
+      color: rgb(161, 160, 160);
+      width: 40%;
+      text-align: center;
+    }
+  }
+  &__products-list {
+    width: fit-content;
+    margin: auto;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    @include breakpoint('lg'){
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    @include breakpoint("xl") {
+      grid-template-columns: repeat(5, 1fr);
     }
-    @include  breakpoint('md'){
-      grid-template-columns: repeat(2,1fr);
+    @include breakpoint("lg") {
+      grid-template-columns: repeat(4, 1fr);
     }
-    @include breakpoint('sm'){
+    @include breakpoint("md") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include breakpoint("sm") {
       display: flex;
       flex-direction: column;
       justify-content: center;

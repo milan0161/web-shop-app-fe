@@ -1,5 +1,18 @@
 <div class="products-wrapper">
+  <div class="products-wrapper__header">
+    <h3>Products</h3>
+    <p>
+      Unlock unparalleled performance with our curated selection of top-tier PC
+      mice. Designed for precision and comfort, these mice redefine your
+      computing experience. Elevate productivity and gaming with best-in-class
+      technology, available exclusively on our website. Upgrade now for seamless
+      and responsive control – the ultimate choice for discerning users.
+    </p>
+  </div>
   <div class="products-wrapper__products-list">
-    <app-product *ngFor="let product of (products$ | async)" [product]="product"></app-product>
+    <app-product
+      *ngFor="let product of products$ | async"
+      [product]="product"
+    ></app-product>
   </div>
 </div>
