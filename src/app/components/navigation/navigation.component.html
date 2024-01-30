@@ -13,12 +13,16 @@
       <span>Contact</span>
       <span>About</span>
     </li>
-    <li *ngIf="loggedUser$ | async" class="navigation__list__item_wrapper">
-      <p>Welcome {{ (loggedUser$ | async)?.username }}</p>
+    <li *ngIf="loggedUser$ | async as loggedUser" class="navigation__list__item_wrapper">
+      <p>Welcome {{ loggedUser.username }}</p>
     </li>
     <li *ngIf="!(loggedUser$ | async)" class="navigation__list__item_wrapper">
       <a routerLink="register" routerLinkActive="active">Sign up</a>
       <a routerLink="login" routerLinkActive="active">Sign in</a>
+    </li>
+    <li class="navigation__list__cart">
+      <i class="fa fa-shopping-cart"></i>
+      <span>0</span>
     </li>
   </ul>
 </nav>

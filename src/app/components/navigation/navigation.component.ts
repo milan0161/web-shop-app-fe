@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/modules/auth/auth.service';
 import { LoginResponse } from 'src/app/modules/auth/login/models/login.model';
 import { UserService } from 'src/app/modules/user/user.service';
+import {OrderService} from "../../modules/order/order.service";
 
 @Component({
   selector: 'app-navigation',
@@ -11,5 +12,5 @@ import { UserService } from 'src/app/modules/user/user.service';
 })
 export class NavigationComponent {
   loggedUser$: Observable<LoginResponse | null> = this.userService.loggedUser$;
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private orderService: OrderService) {}
 }
