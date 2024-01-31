@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../models/product.model';
 import { Role } from '../../auth/login/models/login.model';
-import {map} from "rxjs";
-import {OrderService} from "../../order/order.service";
-import {CreateOrderProduct} from "../../order/models/orderProduct.model";
+import { CartService } from '../../order/cart/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -13,10 +11,14 @@ import {CreateOrderProduct} from "../../order/models/orderProduct.model";
 export class ProductComponent {
   @Input() product!: Product;
   @Input() role: Role = 'USER';
-  constructor(private orderService: OrderService) {
-  }
-  addToCart(){
-    const {id} = this.product
-    console.log(this.product)
+  constructor(private cartService: CartService) {}
+  addToCart() {
+    const { id } = this.product;
+    this.cartService.addCartItems({
+      product: {
+        id: JSON.stringify(id),
+      },
+      quantity: 1,
+    });
   }
 }

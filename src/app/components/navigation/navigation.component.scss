@@ -9,23 +9,22 @@
     grid-template-columns: 2fr 3fr 1fr 1fr;
     color: $green-light;
     list-style: none;
-    &__cart{
-      position: relative;
+    &__cart {
       width: fit-content;
       cursor: pointer;
-      i{
+      i {
         font-size: 1.6rem;
       }
-      span{
+      span {
+        text-align: center;
         display: inline-block;
-        transform: translate(10%,-80%);
+        transform: translate(10%, -80%);
         width: 17px;
         height: 17px;
         text-align: center;
         border-radius: 50%;
         background-color: $warning;
         color: $light;
-
       }
     }
     &__item_wrapper {
