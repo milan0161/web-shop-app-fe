@@ -14,18 +14,22 @@
       <span>About</span>
     </li>
     <li
-      *ngIf="loggedUser$ | async as loggedUser"
+      *ngIf="loggedUser$ | async as loggedUser; else elseblock"
       class="navigation__list__item_wrapper"
     >
       <p>Welcome {{ loggedUser.username }}</p>
     </li>
-    <li *ngIf="!(loggedUser$ | async)" class="navigation__list__item_wrapper">
-      <a routerLink="register" routerLinkActive="active">Sign up</a>
-      <a routerLink="login" routerLinkActive="active">Sign in</a>
-    </li>
+    <ng-template #elseblock>
+      <li class="navigation__list__item_wrapper">
+        <a routerLink="register" routerLinkActive="active">Sign up</a>
+        <a routerLink="login" routerLinkActive="active">Sign in</a>
+      </li>
+    </ng-template>
     <li class="navigation__list__cart">
       <i class="fa fa-shopping-cart"></i>
-      <span>{{ (cart$ | async)?.length }}</span>
+      <span class="navigation__list__cart__quantity">{{
+        (cart$ | async)?.length
+      }}</span>
     </li>
   </ul>
 </nav>
