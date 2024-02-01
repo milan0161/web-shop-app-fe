@@ -13,14 +13,17 @@ export class CartService {
     return this._cartItems$.asObservable();
   }
 
-  addCartItems(item: CreateOrderProduct) {
+  addCartItems(item: CreateOrderProduct): void {
     const itemExist = this._cartItems$.value.find(
       (current) => current.product.id == item.product.id
     );
-    if (itemExist) {
-      itemExist.quantity += 1;
-      return this._cartItems$.next(this._cartItems$.value);
-    }
-    this._cartItems$.next([...this._cartItems$.value, item]);
+    itemExist
+      ? this.addItemQuantity(itemExist)
+      : this._cartItems$.next([...this._cartItems$.value, item]);
+  }
+
+  private addItemQuantity(item: CreateOrderProduct) {
+    item.quantity += 1;
+    this._cartItems$.next(this._cartItems$.value);
   }
 }

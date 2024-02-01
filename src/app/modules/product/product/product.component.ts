@@ -16,7 +16,7 @@ export class ProductComponent {
     const { id } = this.product;
     this.cartService.addCartItems({
       product: {
-        id: JSON.stringify(id),
+        id,
       },
       quantity: 1,
     });

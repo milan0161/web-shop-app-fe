@@ -1,6 +1,6 @@
 export interface CreateOrderProduct {
   product: {
-    id: string;
+    id: number;
   };
   quantity: number;
 }
