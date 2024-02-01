@@ -12,7 +12,7 @@
     <div class="product__details__divider"></div>
     <div class="product__details__price">
       <p>{{ product.price | rsd }}</p>
-      <div>
+      <div (click)="addToCart()">
         <i class="fa fa-shopping-cart"></i>
       </div>
     </div>
