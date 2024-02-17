@@ -7,6 +7,7 @@ import { AuthGuard } from '../guards/auth.guard';
 import { AdminProductsPageComponent } from 'src/app/modules/product/pages/admin-products-page/admin-products-page.component';
 import { AdminGuard } from '../guards/admin.guard';
 import { ProductsPageComponent } from 'src/app/modules/product/pages/products-page/products-page.component';
+import {CartPageComponent} from "../../modules/cart/cart-page/cart-page.component";
 
 export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -20,16 +21,25 @@ export const routes: Routes = [
         component: DashboardComponent,
         children: [
           {
+            path: '',
+            redirectTo: 'admin-products',
+            pathMatch: 'full',
+          },
+          {
             path: 'admin-products',
             canActivate: [AdminGuard()],
             component: AdminProductsPageComponent,
           },
-        ],
+        ]
       },
       {
         path: 'products',
         component: ProductsPageComponent,
       },
+      {
+        path: 'cart',
+        component: CartPageComponent
+      }
     ],
   },
 

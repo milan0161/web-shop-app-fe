@@ -1,0 +1,33 @@
+<table class="cartItems-table">
+  <thead class="cartItems-table__header">
+  <tr>
+    <th>Item</th>
+    <th>Product Price</th>
+    <th>Quantity</th>
+    <th>Operations</th>
+    <th>Total Price</th>
+  </tr>
+  </thead>
+  <tbody class="cartItems-table__body">
+  <tr class="cartItems-table__body__item" *ngFor="let item of cartItems">
+    <td>{{item.product.name}}</td>
+    <td>{{item.product.price | rsd }}</td>
+    <td>{{item.quantity}}</td>
+    <td>
+      <div class="cartItems-table__body__item__quantity-buttons-wrapper">
+        <button type="button" (click)="addQuantity(item)">
+          <i class="fa fa-chevron-up"></i>
+        </button>
+        <button type="button" (click)="removeQuantity(item)">
+          <i class="fa fa-chevron-down"></i>
+        </button>
+      </div>
+    </td>
+    <td>{{item.product.price * item.quantity | rsd}}</td>
+  </tr>
+  </tbody>
+</table>
+<p class="total-price">
+  Total price: {{(totalPrice$ | async)! | rsd}}
+</p>
+
