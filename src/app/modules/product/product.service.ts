@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {Observable, tap} from "rxjs";
 import {CreateProduct, Product} from "./models/product.model";
+import {PaginationRequest} from "../shared/custom/pagination/types/pagination.type";
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,12 @@ import {CreateProduct, Product} from "./models/product.model";
 export class ProductService {
   constructor(private httpClient: HttpClient) { }
 
-  getProducts(): Observable<Product[]>{
-    return this.httpClient.get<Product[]>('/v1/products')
+  getProducts(paginationRequest: PaginationRequest): Observable<Product[]>{
+    return this.httpClient.get<Product[]>('/v1/products',  {params: this.setPaginationParams(paginationRequest)}).pipe(tap(res => console.log(res)))
   }
 
   createProduct(createProduct: CreateProduct){
-    return this.httpClient.post(`/v1/products`, createProduct)
+    return this.httpClient.post(`/v1/products`, createProduct,)
   }
 
   updateProduct(updateProduct: Product){
@@ -27,5 +28,9 @@ export class ProductService {
 
   getProductsAdmin():Observable<Product[]>{
     return this.httpClient.get<Product[]>('/v1/products/administrators')
+  }
+
+  private setPaginationParams(paginationRequest: PaginationRequest){
+    return new HttpParams().set('size', paginationRequest.size).set('page', paginationRequest.page);
   }
 }
