@@ -14,9 +14,8 @@ export class CustomSelectOptionComponent implements OnInit {
     this.parentControl = ngControl.control as FormControl;
   }
   ngOnInit(): void {
-    console.log(this.parentControl);
   }
   chooseOption() {
-    this.parentControl?.setValue(this.value.value);
+    this.parentControl?.setValue(this.value);
   }
 }

@@ -1,0 +1,5 @@
+<div [formGroup]="paginationSize">
+  <app-custom-select-wrapper formControlName="perPage">
+    <app-custom-select-option *ngFor="let page of perPageArray" [value]="page">{{page}}</app-custom-select-option>
+  </app-custom-select-wrapper>
+</div>

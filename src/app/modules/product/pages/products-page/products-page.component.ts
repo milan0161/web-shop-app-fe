@@ -9,6 +9,7 @@ import {BehaviorSubject, switchMap} from "rxjs";
   styleUrls: ['./products-page.component.scss'],
 })
 export class ProductsPageComponent {
+  perPageArray = [12,24,32]
   paginationRequest: PaginationRequest = {
     size: 12,
     page: 0
@@ -19,5 +20,9 @@ export class ProductsPageComponent {
   //waiting to get pageSize, pageNumber, totalPages, totalProducts
   changePageNumber(pageNumber: number){
     this.pagination$.next({...this.pagination$.getValue(), page: pageNumber})
+  }
+  changePerPage(perPage:number){
+    console.log(perPage)
+    this.pagination$.next({...this.pagination$.getValue(), size: perPage})
   }
 }

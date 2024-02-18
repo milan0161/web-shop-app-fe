@@ -11,7 +11,7 @@ export class ProductService {
   constructor(private httpClient: HttpClient) { }
 
   getProducts(paginationRequest: PaginationRequest): Observable<Product[]>{
-    return this.httpClient.get<Product[]>('/v1/products',  {params: this.setPaginationParams(paginationRequest)}).pipe(tap(res => console.log(res)))
+    return this.httpClient.get<Product[]>('/v1/products',  {params: this.setPaginationParams(paginationRequest)})
   }
 
   createProduct(createProduct: CreateProduct){

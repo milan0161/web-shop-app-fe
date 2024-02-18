@@ -46,4 +46,13 @@
   &__pagination-wrapper{
     margin: 15px 0;
   }
+  &__pagination-size-wrapper{
+    min-height: 140px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: right;
+    &__container{
+      width: 20%;
+    }
+  }
 }
