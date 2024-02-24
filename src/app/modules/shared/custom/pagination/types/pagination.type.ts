@@ -3,7 +3,7 @@ export interface PaginationRequest{
   size: number
 }
 export interface PaginationResult<T> {
-  page: number;
-  size: number;
+  totalItems: number,
+  totalPages: number
   data: T
 }

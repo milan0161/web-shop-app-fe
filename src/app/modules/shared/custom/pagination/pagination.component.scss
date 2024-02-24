@@ -1,20 +1,41 @@
 @import "../../../../../styles/color-palette";
+
 .pagination-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  button{
+
+  button, &__page-numbers {
     cursor: pointer;
-    background-color: transparent;
     border: 1px solid $green-dark-1;
     color: $green-light;
     width: 40px;
     font-size: 1.7rem;
     aspect-ratio: 1/1;
     transition-duration: 150ms;
-    &:hover{
+
+    &:hover {
       background-color: $green-light;
       color: #fff;
     }
+  }
+
+  button {
+    background-color: $light;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+}
+.current-page {
+  background: $green-light;
+  color: $light;
+
+  span {
+    background-color: transparent;
   }
 }
