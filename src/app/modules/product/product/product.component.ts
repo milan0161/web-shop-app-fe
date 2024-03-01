@@ -14,7 +14,7 @@ export class ProductComponent {
   constructor(private cartService: CartService) {}
   addToCart() {
     const { id, name, price } = this.product;
-    this.cartService.addCartItems({
+    this.cartService.addCartItem({
       product: {
         id,
         name,

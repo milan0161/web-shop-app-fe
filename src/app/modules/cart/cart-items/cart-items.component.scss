@@ -18,40 +18,7 @@
       }
     }
   }
-  &__body{
-    &__item{
-      border: 1px solid $green-dark-1;
-      text-align: center;
-
-      td:nth-child(1){
-        text-align: left;
-      }
-      td:last-child{
-        text-align: right;
-      }
-      td{
-        padding: 15px;
-      }
-      &__quantity-buttons-wrapper{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-        button{
-          background-color: transparent;
-          border: 1px solid $green-light;
-          padding: 5px 15px;
-          cursor: pointer;
-          transition-duration: 150ms;
-          &:hover{
-            transform: scale(1.2);
-          }
-        }
-      }
-    }
   }
-}
 .total-price{
   text-align: right;
   font-size: 1.7rem;

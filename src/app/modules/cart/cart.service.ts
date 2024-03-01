@@ -8,15 +8,14 @@ import {CartItem} from "./models/cartItem.model";
 })
 export class CartService {
   private _cartItems$ = new BehaviorSubject<CartItem[]>([]);
-  itemsInCart$ = this._cartItems$.pipe(map((cartItems) => cartItems.map(item => item)))
-  totalPrice$:Observable<number> = this._cartItems$.pipe(switchMap((items) => of(this.calculateTotalPrice(items))))
+  totalPrice$:Observable<number> = this._cartItems$.pipe(map((items) => this.calculateTotalPrice(items)))
   constructor() {}
 
   get cartItems$() {
     return this._cartItems$.asObservable();
   }
 
-  addCartItems(item: CartItem): void {
+  addCartItem(item: CartItem): void {
     const itemExist = this._cartItems$.value.find(
       (current) => current.product.id == item.product.id
     );

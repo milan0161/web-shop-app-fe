@@ -14,15 +14,4 @@ export class CartItemsComponent {
   totalPrice$ = this.cartService.totalPrice$
   constructor(private cartService: CartService) {
   }
-  ngOnInit(){
-    console.log(this.cartItems)
-  }
-
-  addQuantity(item: CartItem){
-    this.cartService.addCartItems(item);
-  }
-  removeQuantity(item: CartItem){
-    this.cartService.removeQuantity(item)
-  }
-
 }
