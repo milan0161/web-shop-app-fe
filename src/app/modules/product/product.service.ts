@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams, HttpResponse} from "@angular/common/http";
-import {map, Observable} from "rxjs";
+import {HttpClient, } from "@angular/common/http";
+import { Observable } from "rxjs";
 import {CreateProduct, Product} from "./models/product.model";
 import {PaginationRequest, PaginationResult} from "../shared/custom/pagination/types/pagination.type";
+import {baseHttpGetWithPagination} from "../../core/utils/base-http-get";
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,7 @@ export class ProductService {
   }
 
   getProducts(paginationRequest: PaginationRequest): Observable<PaginationResult<Product[]>> {
-    return this.httpClient.get<Product[]>('/v1/products', {
-      params: this.setPaginationParams(paginationRequest),
-      observe: 'response'
-    }).pipe(map((res) => this.getPaginationResponse(res)
-    ))
+    return baseHttpGetWithPagination<Product[]>(this.httpClient, paginationRequest)
   }
 
   createProduct(createProduct: CreateProduct) {
@@ -33,17 +30,5 @@ export class ProductService {
 
   getProductsAdmin(): Observable<Product[]> {
     return this.httpClient.get<Product[]>('/v1/products/administrators')
-  }
-
-  private setPaginationParams(paginationRequest: PaginationRequest) {
-    return new HttpParams().set('size', paginationRequest.size).set('page', paginationRequest.page);
-  }
-
-  private getPaginationResponse(response: HttpResponse<Product[]>): PaginationResult<Product[]> {
-    return {
-      totalItems: Number(response.headers.get('x-total')!),
-      totalPages: Number(response.headers.get('x-pages')!),
-      data: response.body!
-    }
   }
 }
