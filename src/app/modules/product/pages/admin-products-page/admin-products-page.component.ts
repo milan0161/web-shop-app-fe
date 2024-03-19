@@ -1,9 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ProductService } from '../../product.service';
 import { UserService } from 'src/app/modules/user/user.service';
-import { Subject, takeUntil } from 'rxjs';
+import {BehaviorSubject, Subject, switchMap, takeUntil} from 'rxjs';
 import { DialogService } from 'src/app/modules/shared/custom/dialog/dialog.service';
 import { ProductFormComponent } from '../../product-form/product-form.component';
+import {PaginationRequest} from "../../../shared/custom/pagination/types/pagination.type";
 
 @Component({
   selector: 'app-admin-products-page',
@@ -12,7 +13,13 @@ import { ProductFormComponent } from '../../product-form/product-form.component'
 })
 export class AdminProductsPageComponent implements OnDestroy {
   private destroyed$ = new Subject<void>();
-  products$ = this.productService.getProductsAdmin();
+  perPageArray = [6,12,18]
+  paginationRequest: PaginationRequest = {
+    size: 6,
+    page: 0
+  }
+  pagination$ = new BehaviorSubject<PaginationRequest>(this.paginationRequest)
+  products$ = this.pagination$.pipe(switchMap((paginationRequest) => this.productService.getProducts(paginationRequest)));
   currentUser$ = this.userService.loggedUser$;
   constructor(
     private productService: ProductService,
@@ -27,7 +34,7 @@ export class AdminProductsPageComponent implements OnDestroy {
       .pipe(takeUntil(this.destroyed$))
       .subscribe((res) => {
         if (res) {
-          this.products$ = this.productService.getProductsAdmin();
+          this.pagination$.next(this.pagination$.getValue())
         }
       });
   }
@@ -35,5 +42,12 @@ export class AdminProductsPageComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.destroyed$.next();
     this.destroyed$.complete();
+  }
+
+  changePageNumber(pageNumber: number){
+    this.pagination$.next({...this.pagination$.getValue(), page: pageNumber})
+  }
+  changePerPage(perPage:number){
+    this.pagination$.next({...this.paginationRequest, size: perPage})
   }
 }

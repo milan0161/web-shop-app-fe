@@ -2,19 +2,19 @@
   <button (click)="previousPage()">
     <i class="fa fa-chevron-left"></i>
   </button>
-  <p (click)="toFirstPage()" *ngIf="page > 0" class="pagination-wrapper__page-numbers">
+  <p (click)="toFirstPage()" *ngIf="currentPage > 0" class="pagination-wrapper__page-numbers">
     <span>{{1}}</span>
   </p>
-  <p (click)="previousPage()" *ngIf="page > 1" class="pagination-wrapper__page-numbers">
-    <span>{{page}}</span>
+  <p (click)="previousPage()" *ngIf="currentPage > 1" class="pagination-wrapper__page-numbers">
+    <span>{{currentPage}}</span>
   </p>
   <p class="pagination-wrapper__page-numbers current-page">
-    <span>{{page + 1}}</span>
+    <span>{{currentPage + 1}}</span>
   </p>
-  <p *ngIf="this.page + 1 < totalPages" class="pagination-wrapper__page-numbers">
-    <span>{{page + 2}}</span>
+  <p *ngIf="this.currentPage + 1 < totalPages" class="pagination-wrapper__page-numbers">
+    <span>{{currentPage + 2}}</span>
   </p>
-  <p (click)="toLastPage()" *ngIf="page + 2 < totalPages" class="pagination-wrapper__page-numbers">
+  <p (click)="toLastPage()" *ngIf="currentPage + 2 < totalPages" class="pagination-wrapper__page-numbers">
     <span>{{totalPages}}</span>
   </p>
   <button (click)="nextPage()">

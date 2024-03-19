@@ -7,27 +7,23 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class PaginationComponent {
   @Input() totalItems!: number;
-  page:number = 0
+  @Input() currentPage!: number;
   @Input() totalPages!: number;
   @Output() pageNumber = new EventEmitter<number>()
   previousPage(){
-    if(this.page > 0) {
-      this.page -= 1
-      this.pageNumber.emit(this.page)
+    if(this.currentPage > 0) {
+      this.pageNumber.emit(this.currentPage - 1)
     }
   }
   nextPage(){
-    if(this.page + 1 < this.totalPages){
-      this.page += 1
-      this.pageNumber.emit(this.page)
+    if(this.currentPage + 1 < this.totalPages){
+      this.pageNumber.emit(this.currentPage + 1)
     }
   }
   toFirstPage(){
-    this.page = 0
-    this.pageNumber.emit(this.page)
+    this.pageNumber.emit(0)
   }
   toLastPage(){
-    this.page = this.totalPages - 1
-    this.pageNumber.emit(this.page)
+    this.pageNumber.emit(this.totalPages - 1)
   }
 }
