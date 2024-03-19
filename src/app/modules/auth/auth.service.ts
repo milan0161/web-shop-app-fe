@@ -4,7 +4,6 @@ import { Register } from './register/models/register.model';
 import { environment } from '../../../environments/environment.development';
 import { Login, LoginResponse } from './login/models/login.model';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -21,6 +20,10 @@ export class AuthService {
   }
 
   logout() {
-    // document.cookie = `Authorization=; max-age=0`;
+    return this.http.post<void>('/v1/users/logout', null);
+  }
+
+  refresh(){
+    return this.http.post('/v1/users/refresh-token',null)
   }
 }
