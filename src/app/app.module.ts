@@ -16,6 +16,7 @@ import { ProductModule } from './modules/product/product.module'
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarItemComponent } from './components/sidebar/sidebar-item/sidebar-item.component';
+import {CartModule} from "./modules/cart/cart.module";
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent, HomeComponent, DashboardComponent, SidebarComponent, SidebarItemComponent],
@@ -27,6 +28,7 @@ import { SidebarItemComponent } from './components/sidebar/sidebar-item/sidebar-
     AuthModule,
     OrderModule,
     ProductModule,
+    CartModule
   ],
   providers: [
     provideHttpClient(withInterceptors([requestInterceptor])),

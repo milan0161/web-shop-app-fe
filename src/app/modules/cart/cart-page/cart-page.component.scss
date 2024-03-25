@@ -1,0 +1,23 @@
+@import "../../../../styles/color-palette";
+.cart-page{
+  width: 80%;
+  margin: auto;
+  color: $green-light;
+  &__header{
+    font-size: 1.2rem;
+
+    text-align: center;
+    margin: 2rem 0;
+  }
+  &__cart-table-wrapper{
+    &__empty-cart{
+      text-align: center;
+      font-size: 1.1rem;
+      span{
+        color: $green-dark-1;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}

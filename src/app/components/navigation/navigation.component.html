@@ -25,7 +25,7 @@
         <a routerLink="login" routerLinkActive="active">Sign in</a>
       </li>
     </ng-template>
-    <li class="navigation__list__cart">
+    <li class="navigation__list__cart" (click)="navigateToCart()">
       <i class="fa fa-shopping-cart"></i>
       <span class="navigation__list__cart__quantity">{{
         (cart$ | async)?.length

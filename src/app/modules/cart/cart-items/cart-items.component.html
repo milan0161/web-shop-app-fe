@@ -1,0 +1,18 @@
+<table class="cartItems-table">
+  <thead class="cartItems-table__header">
+  <tr>
+    <th>Item</th>
+    <th>Product Price</th>
+    <th>Quantity</th>
+    <th>Operations</th>
+    <th>Total Price</th>
+  </tr>
+  </thead>
+  <tbody class="cartItems-table__body">
+    <app-cart-item *ngFor="let item of cartItems" [cartItem]="item"></app-cart-item>
+  </tbody>
+</table>
+<p class="total-price">
+  Total price: {{(totalPrice$ | async)! | rsd}}
+</p>
+
