@@ -4,6 +4,7 @@ export interface PaginationRequest{
 }
 export interface PaginationResult<T> {
   totalItems: number,
-  totalPages: number
+  totalPages: number,
+  currentPage: number,
   data: T
 }

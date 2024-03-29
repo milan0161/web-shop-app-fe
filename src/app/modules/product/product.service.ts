@@ -5,6 +5,7 @@ import {CreateProduct, Product} from "./models/product.model";
 import {PaginationRequest, PaginationResult} from "../shared/custom/pagination/types/pagination.type";
 import {baseHttpGetWithPagination} from "../../core/utils/base-http-get";
 
+const PRODUCTS = 'products'
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +14,7 @@ export class ProductService {
   }
 
   getProducts(paginationRequest: PaginationRequest): Observable<PaginationResult<Product[]>> {
-    return baseHttpGetWithPagination<Product[]>(this.httpClient, paginationRequest)
+    return baseHttpGetWithPagination<Product[]>(PRODUCTS, paginationRequest, this.httpClient)
   }
 
   createProduct(createProduct: CreateProduct) {

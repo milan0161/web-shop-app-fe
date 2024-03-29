@@ -22,7 +22,7 @@
       ></app-product>
     </div>
     <div class="products-wrapper__pagination-wrapper">
-      <app-pagination [totalPages]="paginationResult.totalPages" [totalItems]="paginationResult.totalItems"  (pageNumber)="changePageNumber($event)"></app-pagination>
+      <app-pagination [totalPages]="paginationResult.totalPages" [currentPage]="paginationResult.currentPage" [totalItems]="paginationResult.totalItems"  (pageNumber)="changePageNumber($event)"></app-pagination>
     </div>
   </ng-container>
 </div>
