@@ -4,7 +4,6 @@ import { Register } from './register/models/register.model';
 import { environment } from '../../../environments/environment.development';
 import { Login, LoginResponse } from './login/models/login.model';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -17,7 +16,10 @@ export class AuthService {
     });
   }
   login(loginObj: Login) {
-    return this.http.post<LoginResponse>(`/v1/users/auth`, loginObj);
+    return this.http.post<LoginResponse>(
+      `${environment.apiUrl}/v1/users/auth`,
+      loginObj
+    );
   }
 
   logout() {

@@ -1,3 +1,3 @@
-export const TOTAL_ITEMS = 'x-total';
-export const TOTAL_PAGES = 'x-pages';
-export const CURRENT_PAGE = 'x-current-page'
+export const TOTAL_ITEMS = 'X-Total';
+export const TOTAL_PAGES = 'X-Total-Pages';
+export const CURRENT_PAGE = 'X-Current-Page';
