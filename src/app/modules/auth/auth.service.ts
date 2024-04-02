@@ -23,6 +23,10 @@ export class AuthService {
   }
 
   logout() {
-    // document.cookie = `Authorization=; max-age=0`;
+    return this.http.post<void>('/v1/users/logout', null);
+  }
+
+  refresh(){
+    return this.http.post('/v1/users/refresh-token',null)
   }
 }

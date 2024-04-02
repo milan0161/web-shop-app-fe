@@ -21,6 +21,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarItemComponent } from './components/sidebar/sidebar-item/sidebar-item.component';
 import { BASE_HTTP, setBaseHttp } from './core/utils/base-http-get';
+import { CartModule } from './modules/cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { BASE_HTTP, setBaseHttp } from './core/utils/base-http-get';
     AuthModule,
     OrderModule,
     ProductModule,
+    CartModule,
   ],
   providers: [
     provideHttpClient(withInterceptors([requestInterceptor])),

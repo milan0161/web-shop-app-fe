@@ -5,5 +5,6 @@ export const routerConfig: CustomRouter = {
   login: 'login',
   dashboard: 'dashboard',
   products: 'products',
+  cart: 'cart',
   home: '',
 };

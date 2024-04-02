@@ -1,0 +1,15 @@
+<div class="cart-page">
+  <div class="cart-page__header">
+    <h3>Your Cart</h3>
+  </div>
+<div *ngIf="(items$ | async) as cartItems" class="cart-page__cart-table-wrapper">
+  <app-cart-items *ngIf="cartItems.length; else cartEmpty" [cartItems]="cartItems"/>
+  <ng-template #cartEmpty>
+    <p class="cart-page__cart-table-wrapper__empty-cart">Your cart is Empty, check our <span (click)="goToProducts()">products</span> and add some if you are interested</p>
+  </ng-template>
+</div>
+
+<div class="">
+
+</div>
+</div>

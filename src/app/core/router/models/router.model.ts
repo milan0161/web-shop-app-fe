@@ -4,4 +4,5 @@ export interface CustomRouter {
   dashboard: string;
   home: string;
   products: string;
+  cart: string
 }

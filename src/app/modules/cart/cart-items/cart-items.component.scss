@@ -1,0 +1,26 @@
+@import "../../../../styles/color-palette";
+.cartItems-table{
+  border-collapse: collapse;
+  width: 100%;
+  padding: 10px;
+  &__header{
+    border: 1px solid $green-dark-1;
+    font-size: 1.2rem;
+    tr{
+      th:nth-child(1){
+        text-align: left;
+      }
+      th:last-child{
+        text-align: right;
+      }
+      th{
+        padding: 5px;
+      }
+    }
+  }
+  }
+.total-price{
+  text-align: right;
+  font-size: 1.7rem;
+  padding: 15px;
+}
