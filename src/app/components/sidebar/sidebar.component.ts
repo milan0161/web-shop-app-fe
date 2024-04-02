@@ -19,8 +19,11 @@ export class SidebarComponent {
   ) {}
 
   logout() {
+    this.authService.logout().subscribe(() => this.handleLogout());
+  }
+
+  private handleLogout(){
     this.userService.logoutUser();
-    this.authService.logout().subscribe();
     this.router.navigate('home')
   }
 }

@@ -1,32 +1,37 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Register } from './register/models/register.model';
-import { environment } from '../../../environments/environment.development';
 import { Login, LoginResponse } from './login/models/login.model';
+import { BaseHttpService } from 'src/app/core/services/base-http.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
-  constructor(private http: HttpClient) {}
+export class AuthService extends BaseHttpService {
+  constructor() {
+    super('USERS');
+  }
 
   register(registerObj: Register) {
-    return this.http.post(`/v1/${environment.apiUrl}/users`, registerObj, {
+    return this.httpClient.post(this.baseUrl, registerObj, {
       responseType: 'text',
     });
   }
   login(loginObj: Login) {
-    return this.http.post<LoginResponse>(
-      `${environment.apiUrl}/v1/users/auth`,
+    return this.httpClient.post<LoginResponse>(
+      `${this.baseUrl}/auth`,
       loginObj
     );
   }
 
   logout() {
-    return this.http.post<void>('/v1/users/logout', null);
+    return this.httpClient.post(`${this.baseUrl}/logout`, null, {
+      responseType: 'text',
+    });
   }
 
-  refresh(){
-    return this.http.post('/v1/users/refresh-token',null)
+  refresh() {
+    return this.httpClient.post(`${this.baseUrl}/refresh-token`, null, {
+      responseType: 'text',
+    });
   }
 }
