@@ -22,7 +22,7 @@ export class AdminProductsPageComponent implements OnDestroy {
   products$ = this.pagination$
     .pipe(
       switchMap((paginationRequest) =>
-        this.productService.getProducts(paginationRequest)
+        this.productService.getProductsAdmin(paginationRequest)
       )
     )
     .pipe(tap((res) => console.log(res)));
