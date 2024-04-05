@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../../product.service';
-import { PaginationRequest } from '../../../shared/custom/pagination/types/pagination.type';
-import { BehaviorSubject, switchMap, tap } from 'rxjs';
+import { switchMap } from 'rxjs';
 import { BasePaginationService } from 'src/app/core/services/base-pagination.service';
 
 @Component({
@@ -13,13 +12,11 @@ import { BasePaginationService } from 'src/app/core/services/base-pagination.ser
 export class ProductsPageComponent {
   perPageArray = [6, 12, 18];
 
-  products$ = this.paginationService.pagination$
-    .pipe(
-      switchMap((paginationRequest) =>
-        this.productService.getProducts(paginationRequest)
-      )
+  products$ = this.paginationService.pagination$.pipe(
+    switchMap((paginationRequest) =>
+      this.productService.getProducts(paginationRequest)
     )
-    .pipe(tap((res) => console.log(res)));
+  );
 
   constructor(
     private productService: ProductService,

@@ -18,21 +18,20 @@ import { map } from 'rxjs';
 export class BaseHttpService {
   protected baseUrl = environment.apiUrl;
   httpClient = inject(HttpClient);
-
   constructor(@Inject('API_ROUTE') private apiRoute: Api) {
     this.baseUrl += apiConfig[this.apiRoute];
   }
 
-  protected sePaginationParams(paginationRequest: PaginationRequest) {
+  private sePaginationParams(paginationRequest: PaginationRequest) {
     return new HttpParams()
       .set(SIZE, paginationRequest.size)
       .set(PAGE, paginationRequest.page);
   }
 
-  protected getPaginationResponse<T>(response: HttpResponse<T>) {
+  private getPaginationResponse<T>(response: HttpResponse<T>) {
     return {
-      totalItems: Number(response.headers.get(TOTAL_ITEMS)!),
-      totalPages: Number(response.headers.get(TOTAL_PAGES)!),
+      totalItems: Number(response.headers.get(TOTAL_ITEMS)),
+      totalPages: Number(response.headers.get(TOTAL_PAGES)),
       currentPage: Number(response.headers.get(CURRENT_PAGE)),
       data: response.body!,
     };

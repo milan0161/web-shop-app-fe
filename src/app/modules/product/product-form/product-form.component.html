@@ -20,6 +20,17 @@
       title="quantity"
     ></app-custom-text-input>
   </div>
+  <div class="add-product-form__form-control">
+    <app-custom-select-wrapper
+      *ngIf="brands$ | async as brands"
+      formControlName="brand"
+      labelProps="brandName"
+    >
+      <app-custom-select-option *ngFor="let brand of brands" [value]="brand"
+        >{{ brand.brandName }}
+      </app-custom-select-option>
+    </app-custom-select-wrapper>
+  </div>
   <div class="add-product-form__button_wrapper">
     <app-custom-button
       type="button"

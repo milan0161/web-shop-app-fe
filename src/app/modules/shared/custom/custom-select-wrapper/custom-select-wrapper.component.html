@@ -1,5 +1,9 @@
 <div class="select-wrapper" (click)="toggleOptions()">
-  <span>{{ selectedOption }}</span>
+  <span>{{
+    labelProps && selectedOption[labelProps]
+      ? selectedOption[labelProps]
+      : selectedOption
+  }}</span>
   <i [class.is-open]="showOptions" class="fa fa-chevron-down"></i>
 </div>
 <div class="options-wrapper" *ngIf="showOptions">
