@@ -16,7 +16,7 @@
   >
     <span>{{ currentPage }}</span>
   </p>
-  <p class="pagination-wrapper__page-numbers current-page">
+  <p (click)="nextPage()" class="pagination-wrapper__page-numbers current-page">
     <span>{{ currentPage + 1 }}</span>
   </p>
   <p
@@ -32,6 +32,23 @@
   >
     <span>{{ totalPages }}</span>
   </p>
+  <button (click)="nextPage()">
+    <i class="fa fa-chevron-right"></i>
+  </button>
+</div>
+
+<div class="pagination-wrapper">
+  <button (click)="previousPage()">
+    <i class="fa fa-chevron-left"></i>
+  </button>
+  <p
+    [class.current-page]="page === currentPage"
+    class="pagination-wrapper__page-numbers"
+    *ngFor="let page of pagesToRender"
+  >
+    {{ page + 1 }}
+  </p>
+
   <button (click)="nextPage()">
     <i class="fa fa-chevron-right"></i>
   </button>

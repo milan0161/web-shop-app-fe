@@ -7,14 +7,14 @@ import { AuthGuard } from '../guards/auth.guard';
 import { AdminProductsPageComponent } from 'src/app/modules/product/pages/admin-products-page/admin-products-page.component';
 import { AdminGuard } from '../guards/admin.guard';
 import { ProductsPageComponent } from 'src/app/modules/product/pages/products-page/products-page.component';
-import {CartPageComponent} from "../../modules/cart/cart-page/cart-page.component";
+import { CartPageComponent } from '../../modules/cart/cart-page/cart-page.component';
 
 export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   {
     path: '',
-    canActivate: [AuthGuard()],
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'dashboard',
@@ -27,10 +27,10 @@ export const routes: Routes = [
           },
           {
             path: 'admin-products',
-            canActivate: [AdminGuard()],
+            canActivate: [AdminGuard],
             component: AdminProductsPageComponent,
           },
-        ]
+        ],
       },
       {
         path: 'products',
@@ -38,8 +38,8 @@ export const routes: Routes = [
       },
       {
         path: 'cart',
-        component: CartPageComponent
-      }
+        component: CartPageComponent,
+      },
     ],
   },
 
