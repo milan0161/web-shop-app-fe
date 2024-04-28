@@ -4,8 +4,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  button, &__page-numbers {
+  &__page-jump {
+    border: 1px solid $green-dark-1;
+    background-color: $light;
+    font-size: 1rem;
+    font-weight: 300;
+    cursor: pointer;
+    height: 40px;
+    padding: 0 15px;
+    color: $green-light;
+    &:hover {
+      background-color: $green-light;
+      color: #fff;
+    }
+  }
+  &__icons,
+  &__page-numbers {
     cursor: pointer;
     border: 1px solid $green-dark-1;
     color: $green-light;
@@ -13,15 +27,12 @@
     font-size: 1.7rem;
     aspect-ratio: 1/1;
     transition-duration: 150ms;
+    background-color: $light;
 
     &:hover {
       background-color: $green-light;
       color: #fff;
     }
-  }
-
-  button {
-    background-color: $light;
   }
 
   p {

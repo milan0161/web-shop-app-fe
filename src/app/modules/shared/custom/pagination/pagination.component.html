@@ -1,22 +1,14 @@
 <div class="pagination-wrapper">
-  <button (click)="previousPage()">
+  <button (click)="toFirstPage()" class="pagination-wrapper__page-jump">
+    First
+  </button>
+  <button class="pagination-wrapper__icons" (click)="previousPage()">
     <i class="fa fa-chevron-left"></i>
   </button>
-  <p
-    (click)="toFirstPage()"
-    *ngIf="currentPage"
-    class="pagination-wrapper__page-numbers"
-  >
-    <span>{{ 1 }}</span>
-  </p>
-  <p
-    (click)="previousPage()"
-    *ngIf="currentPage > 1"
-    class="pagination-wrapper__page-numbers"
-  >
+  <p *ngIf="currentPage > 1" class="pagination-wrapper__page-numbers">
     <span>{{ currentPage }}</span>
   </p>
-  <p (click)="nextPage()" class="pagination-wrapper__page-numbers current-page">
+  <p class="pagination-wrapper__page-numbers current-page">
     <span>{{ currentPage + 1 }}</span>
   </p>
   <p
@@ -25,31 +17,10 @@
   >
     <span>{{ currentPage + 2 }}</span>
   </p>
-  <p
-    (click)="toLastPage()"
-    *ngIf="currentPage + 2 < totalPages"
-    class="pagination-wrapper__page-numbers"
-  >
-    <span>{{ totalPages }}</span>
-  </p>
-  <button (click)="nextPage()">
+  <button class="pagination-wrapper__icons" (click)="nextPage()">
     <i class="fa fa-chevron-right"></i>
   </button>
-</div>
-
-<div class="pagination-wrapper">
-  <button (click)="previousPage()">
-    <i class="fa fa-chevron-left"></i>
-  </button>
-  <p
-    [class.current-page]="page === currentPage"
-    class="pagination-wrapper__page-numbers"
-    *ngFor="let page of pagesToRender"
-  >
-    {{ page + 1 }}
-  </p>
-
-  <button (click)="nextPage()">
-    <i class="fa fa-chevron-right"></i>
+  <button (click)="toLastPage()" class="pagination-wrapper__page-jump">
+    Last
   </button>
 </div>
