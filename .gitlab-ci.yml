@@ -1,0 +1,17 @@
+build_image:
+  stage: build
+  tags:
+    - linux
+  script:
+    - docker build -t milan0161/milan_demo_repo:angular-app-1.0 .
+#run_push:
+#before_script:
+#- docker login -u $REGISTRY_USER -p base64 -d <<< $REGISTRY_PASS
+#script:
+# - docker push milan0161/milan_demo_repo:angular-app-1.0
+#run_deploy:
+# before_script:
+# - docker login -u $REGISTRY_USER -p base64 -d <<< $REGISTRY_PASS
+#script:
+#- docker pull milan0161/milan_demo_repo:angular-app-1.0
+# - docker run -p 4200:80 --name=angular-app milan0161/milan_demo_repo:angular-app-1.0

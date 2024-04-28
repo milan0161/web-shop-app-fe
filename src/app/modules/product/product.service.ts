@@ -1,31 +1,56 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {CreateProduct, Product} from "./models/product.model";
+import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
+import {
+  CreateProduct,
+  ProductAdmin,
+  ProductUser,
+} from './models/product.model';
+import {
+  PaginationRequest,
+  PaginationResult,
+} from '../shared/custom/pagination/types/pagination.type';
+import { environment } from 'src/environments/environment.development';
+import { BaseHttpService } from 'src/app/core/services/base-http.service';
+import { BasePaginationService } from 'src/app/core/services/base-pagination.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class ProductService {
-  constructor(private httpClient: HttpClient) { }
-
-  getProducts(): Observable<Product[]>{
-    return this.httpClient.get<Product[]>('/v1/products')
+export class ProductService extends BaseHttpService {
+  constructor(private paginationService: BasePaginationService) {
+    super('PRODUCTS');
+  }
+  refetch$ = new BehaviorSubject<boolean>(false);
+  getProducts(
+    paginationRequest: PaginationRequest
+  ): Observable<PaginationResult<ProductUser[]>> {
+    return this.baseHttpGetPagination<ProductUser[]>(paginationRequest);
   }
 
-  createProduct(createProduct: CreateProduct){
-    return this.httpClient.post(`/v1/products`, createProduct)
+  createProduct(createProduct: CreateProduct) {
+    return this.httpClient
+      .post(this.baseUrl, createProduct)
+      .pipe(tap(() => this.refetch$.next(true)));
   }
 
-  updateProduct(updateProduct: Product){
-    return this.httpClient.put('/v1/products', updateProduct)
+  updateProduct(updateProduct: ProductAdmin) {
+    return this.httpClient.put(this.baseUrl, updateProduct);
   }
 
-  deleteProduct(id: number){
-    return this.httpClient.delete('/v1/products/${id}')
+  deleteProduct(id: number) {
+    return this.httpClient.delete(`${this.baseUrl}/${id}`);
   }
 
-  getProductsAdmin():Observable<Product[]>{
-    return this.httpClient.get<Product[]>('/v1/products/administrators')
+  getProductsAdmin(
+    paginationRequest: PaginationRequest
+  ): Observable<PaginationResult<ProductAdmin[]>> {
+    return this.refetch$.pipe(
+      switchMap(() =>
+        this.baseHttpGetPagination<ProductAdmin[]>(
+          paginationRequest,
+          'administrators'
+        )
+      )
+    );
   }
 }

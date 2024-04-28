@@ -4,5 +4,12 @@ import { map } from 'rxjs';
 import { CanActivateFn } from '@angular/router';
 
 export function AuthGuard(): CanActivateFn {
-  return () => inject(UserService).loggedUser$.pipe(map((user) => !!user));
+  return () =>
+    inject(UserService).loggedUser$.pipe(
+      map((user) => {
+        console.log(user);
+
+        return !!user;
+      })
+    );
 }

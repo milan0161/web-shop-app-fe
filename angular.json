@@ -70,8 +70,7 @@
               "browserTarget": "real-estate-app-frontend:build:production"
             },
             "development": {
-              "browserTarget": "real-estate-app-frontend:build:development",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "real-estate-app-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"

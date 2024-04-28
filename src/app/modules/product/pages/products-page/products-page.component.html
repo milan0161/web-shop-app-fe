@@ -9,10 +9,20 @@
       and responsive control – the ultimate choice for discerning users.
     </p>
   </div>
-  <div class="products-wrapper__products-list">
-    <app-product
-      *ngFor="let product of products$ | async"
-      [product]="product"
-    ></app-product>
-  </div>
+  <ng-container *ngIf="products$ | async as paginationResult" >
+    <div class="products-wrapper__pagination-size-wrapper">
+      <div class="products-wrapper__pagination-size-wrapper__container">
+        <app-pagination-size (perPage)="changePerPage($event)" [perPageArray]="perPageArray"></app-pagination-size>
+      </div>
+    </div>
+    <div class="products-wrapper__products-list">
+      <app-product
+        *ngFor="let product of paginationResult.data"
+        [product]="product"
+      ></app-product>
+    </div>
+    <div class="products-wrapper__pagination-wrapper">
+      <app-pagination [totalPages]="paginationResult.totalPages" [currentPage]="paginationResult.currentPage" [totalItems]="paginationResult.totalItems"  (pageNumber)="changePageNumber($event)"></app-pagination>
+    </div>
+  </ng-container>
 </div>

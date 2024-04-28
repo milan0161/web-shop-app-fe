@@ -1,4 +1,4 @@
-import { Component, ContentChildren, QueryList } from '@angular/core';
+import { Component, ContentChildren, Input, QueryList } from '@angular/core';
 import { CustomSelectOptionComponent } from '../custom-select-option/custom-select-option.component';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -17,8 +17,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class CustomSelectWrapperComponent implements ControlValueAccessor {
   @ContentChildren(CustomSelectOptionComponent)
   options?: QueryList<CustomSelectOptionComponent | undefined>;
+  @Input() labelProps: string | undefined;
   showOptions: boolean = true;
-  selectedOption!: CustomSelectOptionComponent;
+  selectedOption!: CustomSelectOptionComponent | any;
   disabled: boolean = false;
   onChange!: (value: CustomSelectOptionComponent) => void;
   onTouched!: () => void;

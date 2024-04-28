@@ -10,6 +10,9 @@ import { CustomSelectOptionComponent } from './custom-select-option/custom-selec
 import { ErrorsPipe } from './pipes/errors/errors.pipe';
 import { CustomErrorMessageComponent } from './custom-error-message/custom-error-message.component';
 import { RsdPipe } from './pipes/currency/rsd.pipe';
+import {PaginationComponent} from "./pagination/pagination.component";
+import { PaginationSizeComponent } from './pagination/pagination-size/pagination-size.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,8 +25,10 @@ import { RsdPipe } from './pipes/currency/rsd.pipe';
     ErrorsPipe,
     CustomErrorMessageComponent,
     RsdPipe,
+    PaginationComponent,
+    PaginationSizeComponent
   ],
-  imports: [CommonModule, OverlayModule],
+  imports: [CommonModule, OverlayModule, ReactiveFormsModule],
   exports: [
     CustomButtonComponent,
     CustomTextInputComponent,
@@ -32,6 +37,8 @@ import { RsdPipe } from './pipes/currency/rsd.pipe';
     CustomSelectOptionComponent,
     CustomErrorMessageComponent,
     RsdPipe,
+    PaginationComponent,
+    PaginationSizeComponent
   ],
 })
 export class CustomModule {}
