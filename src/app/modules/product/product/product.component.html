@@ -1,6 +1,11 @@
 <div *ngIf="product" class="product">
-  <button *ngIf="role === 'ADMINISTRATOR'" class="product__option-button">
-    Options
+  <button
+    *ngIf="role === 'ADMINISTRATOR' && isAdminPage"
+    class="product__option-button"
+  >
+    <app-product-options
+      (option)="showChosedOption($event)"
+    ></app-product-options>
   </button>
   <div class="product__image"></div>
   <div class="product__details">

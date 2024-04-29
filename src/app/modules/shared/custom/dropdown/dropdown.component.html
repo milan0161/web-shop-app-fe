@@ -1,0 +1,25 @@
+<div class="dropdown-wrapper" appClickOutside (clickOutside)="clickedOutside()">
+  <button class="dropdown-wrapper__toggler" (click)="toggleDropDown()">
+    <ng-container *ngIf="text" else icon>
+      {{ text }}
+    </ng-container>
+    <i
+      [@toggleDropdown]="dropDownOpen ? 'open' : 'closed'"
+      #icon
+      class="fa fa-bars"
+    ></i>
+  </button>
+  <div
+    [@showOptions]="dropDownOpen ? 'open' : 'closed'"
+    class="dropdown-wrapper__options-list"
+    *ngIf="dropDownOpen"
+  >
+    <div
+      class="dropdown-wrapper__options-list__option"
+      *ngFor="let option of options"
+      (click)="emitValue(option)"
+    >
+      {{ option }}
+    </div>
+  </div>
+</div>

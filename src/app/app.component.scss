@@ -15,3 +15,12 @@ form {
     margin: 10px 0;
   }
 }
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 77px;
+  &__outlet {
+    width: 100%;
+  }
+}

@@ -22,7 +22,6 @@ export class ProductsPageComponent {
     private productService: ProductService,
     private paginationService: BasePaginationService
   ) {}
-  //waiting to get pageSize, pageNumber, totalPages, totalProducts
   changePageNumber(pageNumber: number) {
     this.paginationService.changePage(pageNumber);
   }

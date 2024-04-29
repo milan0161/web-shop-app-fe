@@ -4,6 +4,7 @@
     [type]="type"
     (input)="onValueChange($event)"
     [class.is-invalid]="!isValid"
+    [value]="textValue"
   />
   <p *ngIf="!isValid">
     <app-custom-error-message

@@ -10,9 +10,12 @@ import { CustomSelectOptionComponent } from './custom-select-option/custom-selec
 import { ErrorsPipe } from './pipes/errors/errors.pipe';
 import { CustomErrorMessageComponent } from './custom-error-message/custom-error-message.component';
 import { RsdPipe } from './pipes/currency/rsd.pipe';
-import {PaginationComponent} from "./pagination/pagination.component";
+import { PaginationComponent } from './pagination/pagination.component';
 import { PaginationSizeComponent } from './pagination/pagination-size/pagination-size.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
+import { DropdownComponent } from './dropdown/dropdown.component';
+import { ClickOutsideDirective } from 'src/app/modules/shared/directives/click-outside.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,9 +29,16 @@ import {ReactiveFormsModule} from "@angular/forms";
     CustomErrorMessageComponent,
     RsdPipe,
     PaginationComponent,
-    PaginationSizeComponent
+    PaginationSizeComponent,
+    DropdownComponent,
+    ClickOutsideDirective,
   ],
-  imports: [CommonModule, OverlayModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    OverlayModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+  ],
   exports: [
     CustomButtonComponent,
     CustomTextInputComponent,
@@ -38,7 +48,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     CustomErrorMessageComponent,
     RsdPipe,
     PaginationComponent,
-    PaginationSizeComponent
+    PaginationSizeComponent,
+    DropdownComponent,
   ],
 })
 export class CustomModule {}

@@ -34,11 +34,15 @@ export class ProductService extends BaseHttpService {
   }
 
   updateProduct(updateProduct: ProductAdmin) {
-    return this.httpClient.put(this.baseUrl, updateProduct);
+    return this.httpClient
+      .put(this.baseUrl, updateProduct)
+      .pipe(tap(() => this.refetch$.next(true)));
   }
 
   deleteProduct(id: number) {
-    return this.httpClient.delete(`${this.baseUrl}/${id}`);
+    return this.httpClient
+      .delete(`${this.baseUrl}/${id}`)
+      .pipe(tap(() => this.refetch$.next(true)));
   }
 
   getProductsAdmin(
