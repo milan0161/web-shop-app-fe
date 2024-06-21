@@ -66,7 +66,6 @@ export class ProductComponent implements AfterContentInit, OnInit, OnDestroy {
           tap((value) => (value ? this.removeProduct() : value)),
           takeUntil(this.destroyed$)
         )
-
         .subscribe();
     } else {
       this.dialogService.open<ProductFormComponent, ProductAdmin | ProductUser>(
@@ -85,7 +84,6 @@ export class ProductComponent implements AfterContentInit, OnInit, OnDestroy {
   }
 
   private checkAdminPage() {
-    this.isAdminPage =
-      this.router.url === '/dashboard/admin-products' ? true : false;
+    this.isAdminPage = this.router.url === '/dashboard/admin-products';
   }
 }

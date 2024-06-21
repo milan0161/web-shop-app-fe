@@ -1,6 +1,6 @@
 export type Brand = {
   id: number;
-  brandName?: string;
+  brandName: string;
 };
 
 export type CreateProductBrand = Omit<Brand, 'brandName'>;

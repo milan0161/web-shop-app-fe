@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
 import {
   CreateProduct,
+  EditProduct,
   ProductAdmin,
   ProductUser,
 } from './models/product.model';
@@ -33,7 +34,7 @@ export class ProductService extends BaseHttpService {
       .pipe(tap(() => this.refetch$.next(true)));
   }
 
-  updateProduct(updateProduct: ProductAdmin) {
+  updateProduct(updateProduct: EditProduct) {
     return this.httpClient
       .put(this.baseUrl, updateProduct)
       .pipe(tap(() => this.refetch$.next(true)));
@@ -41,7 +42,9 @@ export class ProductService extends BaseHttpService {
 
   deleteProduct(id: number) {
     return this.httpClient
-      .delete(`${this.baseUrl}/${id}`)
+      .delete(`${this.baseUrl}/${id}`, {
+        responseType: 'text',
+      })
       .pipe(tap(() => this.refetch$.next(true)));
   }
 
