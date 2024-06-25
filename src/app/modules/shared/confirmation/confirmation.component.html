@@ -1,0 +1,19 @@
+<div class="confirmation-dialog-wrapper">
+  <h3>
+    This action cannot be undone after confirmation, are you completely sure?
+  </h3>
+  <div class="confirmation-dialog-wrapper__button-wrapper">
+    <button
+      (click)="positive()"
+      class="confirmation-dialog-wrapper__button-wrapper__positive"
+    >
+      Yes
+    </button>
+    <button
+      (click)="negative()"
+      class="confirmation-dialog-wrapper__button-wrapper__negative"
+    >
+      No
+    </button>
+  </div>
+</div>

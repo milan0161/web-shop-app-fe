@@ -1,0 +1,26 @@
+@import "../../../../styles/color-palette.scss";
+.confirmation-dialog-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  &__button-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    button {
+      width: 100%;
+      padding: 3px 7px;
+      border: none;
+      color: $light;
+      cursor: pointer;
+    }
+    &__negative {
+      background: $danger;
+    }
+    &__positive {
+      background-color: $green-dark-1;
+    }
+  }
+}

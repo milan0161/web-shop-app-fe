@@ -20,6 +20,7 @@
       <app-product
         *ngFor="let product of paginationResult.data"
         [product]="product"
+        [role]="(currentUser$ | async)?.role!"
       ></app-product>
     </div>
     <div class="products-wrapper__pagination-wrapper">

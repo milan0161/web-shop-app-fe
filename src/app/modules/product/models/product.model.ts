@@ -20,3 +20,5 @@ type OmitBrand = Omit<ProductAdmin, 'brand'>;
 export interface ProductUser extends OmitBrand {
   brandName: string;
 }
+
+export type EditProduct = OmitBrand & BrandId;

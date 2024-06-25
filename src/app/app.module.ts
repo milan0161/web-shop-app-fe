@@ -17,7 +17,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SidebarItemComponent } from './components/sidebar/sidebar-item/sidebar-item.component';
 import { CartModule } from './modules/cart/cart.module';
-
+import { ConfirmationComponent } from './modules/shared/confirmation/confirmation.component';
+import { provideAnimations } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { CartModule } from './modules/cart/cart.module';
     DashboardComponent,
     SidebarComponent,
     SidebarItemComponent,
+    ConfirmationComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { CartModule } from './modules/cart/cart.module';
       useFactory: loggedUserInitializer,
       deps: [AuthService],
     },
+    provideAnimations(),
   ],
   bootstrap: [AppComponent],
 })

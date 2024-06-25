@@ -62,8 +62,7 @@ export class CustomTextInputComponent implements ControlValueAccessor, OnInit {
   onValueChange(e: any) {
     if (this.disabled) return;
     this.textValue = e.target.value;
-    if(this.type === 'number')
-      this.textValue = Number(this.textValue)
+    if (this.type === 'number') this.textValue = Number(this.textValue);
     this.onChange(this.textValue);
     this.onTouched();
     this.checkIsValid();
